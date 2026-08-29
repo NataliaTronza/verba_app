@@ -1,5 +1,5 @@
 /* Verba — сервіс-воркер: офлайн-режим і оновлення */
-const V = "verba-v1";
+const V = "verba-v2";
 const CORE = [
   "./", "./index.html", "./manifest.webmanifest",
   "./icon-192.png", "./icon-512.png",
