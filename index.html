@@ -157,10 +157,28 @@ code,.k{font-family:'JetBrains Mono',monospace;font-size:.86em;border-radius:7px
   background:linear-gradient(145deg,var(--hi),var(--lo));box-shadow:5px 5px 11px var(--shd), -5px -5px 11px var(--shl);
   border-left:4px solid var(--bad)}
 .warn b{color:var(--bad);display:block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;margin-bottom:5px}
-.word,.crow{display:flex;gap:12px;padding:13px 0;border-top:1px solid var(--line);align-items:flex-start}
-.word:first-child,.crow:first-child{border-top:0}
+.word{display:flex;gap:12px;padding:13px 0;border-top:1px solid var(--line);align-items:flex-start}
+.word:first-child{border-top:0}
 .word .l,.crow .l{flex:1;min-width:0}
+/* рядок картки: теги зверху, текст на всю ширину */
+.crow{padding:15px 0;border-top:1px solid var(--line)}
+.crow:first-child{border-top:0}
+.ctop{display:flex;align-items:center;gap:7px;margin-bottom:9px;flex-wrap:wrap}
+.ctop .cact{margin-left:auto;display:flex;gap:7px}
+.box.own{color:var(--dim)}
+.cbody{display:flex;gap:12px;align-items:flex-start}
+.crow .cs{color:var(--dim);font-size:12.5px;font-style:italic;margin-top:3px;line-height:1.5}
+.crow .cw{line-height:1.4}
 .word .w,.crow .cw{font-weight:600;font-size:15.5px}
+/* збери речення */
+.built{min-height:78px;border-radius:20px;padding:12px;margin-bottom:14px;display:flex;flex-wrap:wrap;gap:9px;align-content:flex-start;
+  background:linear-gradient(145deg,var(--lo),var(--hi));box-shadow:inset 4px 4px 9px var(--shd), inset -4px -4px 9px var(--shl)}
+.tokhint{color:var(--dim);font-size:13px;font-family:'JetBrains Mono',monospace;align-self:center;margin:auto}
+.bank{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:6px}
+.tok{border-radius:14px;padding:10px 14px;font-size:15px;
+  background:linear-gradient(145deg,var(--hi),var(--lo));box-shadow:4px 4px 9px var(--shd), -4px -4px 9px var(--shl);transition:.14s}
+.tok:active{box-shadow:inset 3px 3px 7px var(--shd), inset -3px -3px 7px var(--shl)}
+.tok.on{color:#fff;background:linear-gradient(135deg,var(--a1),var(--a2));box-shadow:3px 3px 8px var(--shd)}
 .word .tr,.crow .ct{font-size:14px;font-weight:600;
   background:linear-gradient(120deg,var(--a1),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .word .s{color:var(--dim);font-size:13px;font-style:italic;margin-top:3px}
@@ -1684,6 +1702,346 @@ ex:[
  {t:"match",pairs:[["to flex","хизуватися"],["salty","ображений"],["say less","зрозуміла, досить"],["sus","підозрілий"]]}
 ],
 hw:"Знайдіть 10 сленгових слів у коментарях під англомовним відео або в серіалі. До кожного випишіть контекст і спробуйте вгадати значення до того, як перевірите. Потім позначте, які з них ви б наважилися вжити самі, а які — лише розуміти."
+}
+);
+
+EN_LESSONS.push(
+{
+id:"en19", level:"B1",
+title:"Small talk: як не мовчати",
+short:"Розмова ні про що, яка відкриває двері",
+goal:"Почати, підтримати й гідно завершити коротку розмову з малознайомою людиною — і не застрягнути після «I'm fine, thanks».",
+theory:[
+ {p:"Small talk — це не порожня балаканина, а соціальний ритуал: спосіб показати, що ви приязні й безпечні. Головне правило — **пінг-понг**: на кожне запитання відповідайте трохи більше, ніж запитали, і повертайте м'яч співрозмовнику."},
+ {slab:"питання → відповідь + ~деталь~ → зустрічне питання\n— How was your weekend?\n— Really good, I finally went hiking. ~How about you?~"},
+ {h:"Чим відповідь відрізняється від глухого кута"},
+ {tbl:{head:["Глухий кут","Пінг-понг"],rows:[
+  ["— How are you? — Fine.","— How are you? — Good, thanks — a bit sleepy though. ~You?~"],
+  ["— Nice weather. — Yes.","— Nice weather. — Finally! I've been waiting for this all month."],
+  ["— Do you like it here? — Yes.","— Do you like it here? — I do, especially the park nearby. ~Have you been?~"]
+ ]}},
+ {h:"Безпечні теми й ті, яких краще уникати"},
+ {list:[
+  "**Безпечно:** погода, дорога, вихідні, їжа, серіали, домашні улюбленці, подорожі, місцеві новини без політики.",
+  "**Обережно:** робота (у деяких країнах питання «скільки заробляєш» — табу), вік, стосунки.",
+  "**Не варто:** гроші, релігія, політика, здоров'я, зовнішність, чому в людини немає дітей."
+ ]},
+ {h:"Відкривачі"},
+ {ex:[
+  ["Have you been waiting long?","Довго чекаєте?"],
+  ["Is this seat taken?","Це місце вільне?"],
+  ["Lovely day, isn't it?","Гарний день, правда?"],
+  ["Are you here often?","Ви тут часто буваєте?"],
+  ["How do you know Anna?","Звідки ви знаєте Анну?"],
+  ["First time here?","Уперше тут?"]
+ ]},
+ {h:"Реакції, які тримають розмову"},
+ {p:"Мовчазне кивання читається як байдужість. Англійська має цілий набір коротких сигналів «я слухаю»."},
+ {slab:"Oh really? · That's interesting · No way! · Same here\nGood for you! · That sounds fun · Tell me more · I know what you mean\nOh no, that's a shame · Wow, congratulations!"},
+ {h:"Як перепитати, коли не почули"},
+ {ex:[
+  ["Sorry, I didn't catch that.","Вибачте, я не розчула."],
+  ["Could you say that again?","Можете повторити?"],
+  ["Sorry, what was that?","Перепрошую, що ви сказали?"]
+ ]},
+ {h:"Як вийти з розмови ввічливо"},
+ {p:"Різко піти — незручно. Англійська має формулу: **сигнал + причина + тепле завершення**."},
+ {ex:[
+  ["Anyway, I should get going — it was really nice talking to you.","Ну гаразд, мені вже треба йти — приємно було поговорити."],
+  ["I'd better let you go.","Не буду вас затримувати."],
+  ["Let's catch up properly soon.","Треба буде поговорити нормально найближчим часом."],
+  ["Right, I'll leave you to it.","Гаразд, не заважатиму."]
+ ]},
+ {h:"Розмова цілком"},
+ {ex:[
+  ["— Hi, is this seat taken? — No, go ahead.","— Привіт, тут вільно? — Так, сідайте."],
+  ["— Have you been coming here long? — About a year. You? — First time, actually.","— Ви давно сюди ходите? — Десь рік. А ви? — Власне, уперше."],
+  ["— How are you finding it? — Better than I expected! — Good for you.","— Ну і як враження? — Краще, ніж я очікувала! — Оце добре."],
+  ["— Anyway, I should head off. Nice meeting you. — You too, see you around.","— Ну, мені вже час. Приємно було познайомитися. — Навзаєм, ще побачимось."]
+ ]},
+ {warn:"«How are you?» від незнайомця чи касира — це вітання, а не питання про самопочуття. Відповідь: Good, thanks — you? Розповідати про тиждень тут не треба."}
+],
+words:[
+ {w:"to catch up",t:"поговорити після перерви; надолужити",s:"Let's catch up next week."},
+ {w:"to head off",t:"вирушати, йти",s:"I should head off soon."},
+ {w:"awkward",t:"незручний, ніяковий",s:"There was an awkward silence."},
+ {w:"to break the ice",t:"розтопити кригу",s:"Her joke broke the ice."},
+ {w:"good for you",t:"молодець, оце добре",s:"You quit? Good for you!"},
+ {w:"same here",t:"я так само",s:"— I'm exhausted. — Same here."},
+ {w:"to bump into",t:"випадково зустріти",s:"I bumped into Olha yesterday."},
+ {w:"chatty",t:"балакучий",s:"He's chatty in the mornings."},
+ {w:"to keep it light",t:"тримати легкий тон",s:"Let's keep it light."},
+ {w:"a shame",t:"прикро, шкода",s:"That's a shame."},
+ {w:"to get going",t:"збиратися йти",s:"I'd better get going."},
+ {w:"see you around",t:"ще побачимось",s:"Bye, see you around!"}
+],
+pats:[
+ {f:"How's your … going?",t:"Як там твій…?",s:"How's your course going?"},
+ {f:"…, isn't it? / …, don't you?",t:"…, правда ж?",s:"Busy today, isn't it?"},
+ {f:"That sounds + прикметник",t:"Звучить…",s:"That sounds exhausting."},
+ {f:"I should get going",t:"Мені вже час",s:"I should get going, sorry."},
+ {f:"It was nice talking to you",t:"Приємно було поговорити",s:"It was nice talking to you, really."}
+],
+ex:[
+ {t:"choice",q:"Найкраща відповідь на «How was your weekend?»",o:["Fine.","Good, thanks.","Really nice — I finally went to the lake. How about you?","Weekend was normal."],a:2,why:"Відповідь + деталь + зустрічне питання тримають розмову."},
+ {t:"choice",q:"Яка тема НЕ вважається безпечною для small talk?",o:["Погода","Серіали","Зарплата","Домашні улюбленці"],a:2,why:"Гроші — одна з найбільш табуйованих тем."},
+ {t:"gap",q:"Sorry, I didn't ___ that — could you say it again?",a:["catch"],why:"Didn't catch that — стала фраза «не розчула»."},
+ {t:"choice",q:"Як ввічливо завершити розмову?",o:["Bye.","I have to go now, sorry.","Anyway, I should get going — it was nice talking to you.","OK, finish."],a:2,why:"Сигнал + причина + тепле завершення."},
+ {t:"gap",q:"— I'm so tired today. — ___ here.",a:["Same"],why:"Same here = я так само."},
+ {t:"choice",q:"Що означає «I bumped into her»?",o:["Я штовхнула її","Я випадково її зустріла","Я їй подзвонила","Я з нею посварилася"],a:1,why:"Bump into — випадкова зустріч."},
+ {t:"tr",q:"Гарна погода сьогодні, правда? — Нарешті! Я цього цілий місяць чекала.",a:["Lovely weather today, isn't it? — Finally! I've been waiting for this all month.","Nice weather today, isn't it? — Finally, I've been waiting for it all month."],why:"Питання-хвостик + відповідь із деталлю."},
+ {t:"tr",q:"Ну, мені вже час. Приємно було поговорити, ще побачимось.",a:["Anyway, I should get going. It was nice talking to you, see you around.","Right, I should head off. It was nice talking to you — see you around."],why:"Повна формула виходу з розмови."},
+ {t:"match",pairs:[["to break the ice","розтопити кригу"],["awkward","ніяковий"],["chatty","балакучий"],["to head off","вирушати"]]}
+],
+hw:"Складіть свій «набір виживання»: 5 відкривачів, 8 реакцій і 3 фрази виходу з розмови. Потім напишіть діалог на 12 реплік, у якому ви знайомитеся з кимось у черзі до кави, — і простежте, щоб у кожній вашій репліці був пінг-понг."
+},
+
+{
+id:"en20", level:"B2",
+title:"Емоції точними словами",
+short:"Далі за happy, sad і tired",
+goal:"Описувати відтінки стану так, як це робить носій, і читати емоцію в чужій мові.",
+theory:[
+ {p:"Більшість людей на B1 має три слова на всі почуття: happy, sad, tired. Носій має тридцять — і саме вони роблять мову дорослою. Ключ у **силі** й **відтінку**."},
+ {h:"Шкала радості"},
+ {tbl:{head:["Слабко","Звичайно","Сильно"],rows:[
+  ["pleased · content","happy · glad","thrilled · over the moon"],
+  ["fine · alright","good","delighted · buzzing"],
+  ["amused","cheerful","ecstatic"]
+ ]}},
+ {h:"Шкала втоми й напруги"},
+ {slab:"a bit tired → ~worn out~ → ~drained~ → ~exhausted~ → ~running on empty~\nuneasy → ~anxious~ → ~stressed out~ → ~overwhelmed~ → ~burnt out~"},
+ {ex:[
+  ["I'm completely drained after that call.","Я геть вичавлена після того дзвінка."],
+  ["She's been feeling overwhelmed at work.","Її останнім часом накриває роботою."],
+  ["I'm running on empty this week.","Цього тижня я тримаюся на останніх силах."]
+ ]},
+ {h:"Розчарування й роздратування"},
+ {tbl:{head:["Слово","Відтінок","Приклад"],rows:[
+  ["disappointed","очікувала кращого","I was ~disappointed~ with the result"],
+  ["gutted","дуже боляче (брит.)","I was absolutely ~gutted~"],
+  ["frustrated","злість від безсилля","I get ~frustrated~ when nothing works"],
+  ["annoyed","дрібне роздратування","I'm slightly ~annoyed~"],
+  ["fed up","дістало","I'm ~fed up~ with excuses"],
+  ["let down","підвели","I felt ~let down~ by her"]
+ ]}},
+ {h:"Тривога й спокій"},
+ {ex:[
+  ["I'm a bit on edge today.","Я сьогодні трохи на нервах."],
+  ["Something's been bugging me.","Мене щось гризе."],
+  ["I feel at peace with it now.","Я вже змирилася з цим."],
+  ["It took a weight off my shoulders.","З мене наче камінь звалився."],
+  ["I'm in two minds about it.","Я вагаюся."]
+ ]},
+ {h:"Ідіоми стану"},
+ {slab:"on cloud nine — на сьомому небі      down in the dumps — у зневірі\nunder the weather — нездужаю        at my wit's end — на межі\nbutterflies in my stomach — метелики  a weight off my mind — полегшення"},
+ {h:"Як сказати про це м'яко"},
+ {p:"Англійська рідко заявляє емоцію прямо. Її пом'якшують: **a bit, slightly, kind of, sort of, a little**, або обертають у формулу «I'm not gonna lie»."},
+ {ex:[
+  ["I'm not gonna lie, I'm a bit gutted.","Не буду брехати, мені трохи прикро."],
+  ["I'm kind of nervous about tomorrow.","Я трохи хвилююся щодо завтра."],
+  ["It's been a lot lately.","Останнім часом навалилося."]
+ ]},
+ {h:"Питати про стан по-дорослому"},
+ {ex:[
+  ["How are you holding up?","Як ти тримаєшся?"],
+  ["Is everything alright? You seem quiet.","Усе гаразд? Ти якась мовчазна."],
+  ["That sounds really tough.","Це справді важко."],
+  ["Do you want to talk about it or just vent?","Хочеш обговорити чи просто виговоритися?"]
+ ]}
+],
+words:[
+ {w:"drained",t:"вичавлена, спустошена",s:"I feel completely drained."},
+ {w:"overwhelmed",t:"пригнічена обсягом, накрита",s:"I'm overwhelmed with work."},
+ {w:"frustrated",t:"роздратована безсиллям",s:"I get frustrated with slow apps."},
+ {w:"fed up with",t:"ситий по горло",s:"I'm fed up with waiting."},
+ {w:"thrilled",t:"у захваті",s:"She was thrilled with the news."},
+ {w:"content",t:"вдоволена, у злагоді",s:"I feel content these days."},
+ {w:"on edge",t:"на нервах",s:"He's been on edge all week."},
+ {w:"to let someone down",t:"підвести когось",s:"I don't want to let you down."},
+ {w:"under the weather",t:"нездужаю",s:"I'm a bit under the weather."},
+ {w:"to vent",t:"виговоритися, випустити пар",s:"I just needed to vent."},
+ {w:"a weight off my mind",t:"камінь із душі",s:"That's a weight off my mind."},
+ {w:"to hold up",t:"триматися",s:"How are you holding up?"}
+],
+pats:[
+ {f:"I'm a bit + прикметник",t:"Я трохи…",s:"I'm a bit overwhelmed, honestly."},
+ {f:"It's been a lot lately",t:"Останнім часом навалилося",s:"It's been a lot lately, to be fair."},
+ {f:"How are you holding up?",t:"Як ти тримаєшся?",s:"Hey, how are you holding up?"},
+ {f:"That sounds really + прикметник",t:"Це звучить дуже…",s:"That sounds really draining."},
+ {f:"I'm in two minds about …",t:"Я вагаюся щодо…",s:"I'm in two minds about the offer."}
+],
+ex:[
+ {t:"choice",q:"Оберіть найсильніше слово для втоми.",o:["a bit tired","worn out","drained","running on empty"],a:3,why:"Running on empty — вже на нулі, крайня точка шкали."},
+ {t:"choice",q:"«I'm fed up with it» означає:",o:["Я цим захоплена","Мене це дістало","Я цим наситилася в хорошому сенсі","Я до цього байдужа"],a:1,why:"Fed up with = сита по горло."},
+ {t:"gap",q:"I felt ___ down when she cancelled again.",a:["let"],why:"To let someone down — підвести."},
+ {t:"choice",q:"Яка фраза означає полегшення?",o:["I'm at my wit's end","That's a weight off my mind","I'm on edge","I'm gutted"],a:1,why:"Камінь із душі — саме полегшення."},
+ {t:"gap",q:"How are you ___ up? I know this week has been hard.",a:["holding"],why:"Hold up — триматися в складний період."},
+ {t:"choice",q:"Що м'якше звучить?",o:["I'm angry.","I'm slightly annoyed.","I'm furious.","I'm fed up."],a:1,why:"Slightly — класичний пом'якшувач."},
+ {t:"tr",q:"Не буду брехати, я цього тижня геть вичавлена — накрило роботою.",a:["I'm not gonna lie, I'm completely drained this week — I've been overwhelmed with work.","Not gonna lie, I feel drained this week, work has been overwhelming."],why:"Пом'якшувач + сильні слова стану."},
+ {t:"tr",q:"Хочеш це обговорити чи просто виговоритися? Звучить справді важко.",a:["Do you want to talk about it or just vent? That sounds really tough.","Do you want to discuss it or just vent? That sounds really hard."],why:"Дві найкорисніші фрази підтримки."},
+ {t:"match",pairs:[["on cloud nine","на сьомому небі"],["down in the dumps","у зневірі"],["under the weather","нездужаю"],["at my wit's end","на межі"]]}
+],
+hw:"Ведіть тиждень короткий щоденник англійською: щодня одне речення про свій стан, але щоразу новим словом зі шкал вище. Наприкінці випишіть, які п'ять слів справді ваші — ті, що описують вас найчастіше."
+},
+
+{
+id:"en21", level:"B2",
+title:"Робоче листування й дзвінки",
+short:"Email, прохання, відмови, дедлайни",
+goal:"Писати короткі робочі листи, які не звучать ні грубо, ні по-школярськи, і давати раду телефонній розмові.",
+theory:[
+ {p:"Робоча англійська тримається на трьох речах: **зрозумілий перший рядок**, ввічлива форма прохання і чіткий наступний крок. Довжина тут не чеснота."},
+ {h:"Каркас листа"},
+ {slab:"1 привітання   Hi Anna, / Dear Ms Petrenko,\n2 навіщо пишу  I'm writing to …\n3 суть         2–4 речення\n4 наступний крок  Could you … by Friday?\n5 підпис       Best regards, / Thanks,"},
+ {h:"Перший рядок"},
+ {ex:[
+  ["I'm writing to ask about the invoice for March.","Пишу, щоб запитати про рахунок за березень."],
+  ["Just a quick note about tomorrow's meeting.","Коротко щодо завтрашньої зустрічі."],
+  ["Following up on my previous email.","Нагадую про свій попередній лист."],
+  ["Thanks for getting back to me so quickly.","Дякую за таку швидку відповідь."]
+ ]},
+ {h:"Прохання за силою"},
+ {tbl:{head:["Форма","Тон","Приклад"],rows:[
+  ["Could you …?","нейтрально ввічливо","~Could you~ send it today?"],
+  ["Would you mind + ing?","м'яко","~Would you mind~ checking this?"],
+  ["I was wondering if you could …","дуже ввічливо","~I was wondering if you could~ extend the deadline"],
+  ["Please + V1","прямо, іноді різко","~Please~ confirm by 5 p.m."],
+  ["It would be great if you could …","тепло","~It would be great if you could~ join"]
+ ]}},
+ {h:"Погані новини й відмови"},
+ {p:"Формула: **подяка або визнання → відмова → альтернатива**. Пряме «No, I can't» без обгортки звучить холодно."},
+ {ex:[
+  ["Thanks for thinking of me, but I won't be able to take this on right now.","Дякую, що згадали про мене, але зараз я цього не потягну."],
+  ["Unfortunately, we won't be able to meet that deadline.","На жаль, ми не встигнемо до цього терміну."],
+  ["I'd love to help, but my week is fully booked. Would next Tuesday work?","Я б залюбки допомогла, але тиждень забитий. Наступний вівторок підійде?"],
+  ["I'm afraid there's been a slight delay.","Боюся, сталася невелика затримка."]
+ ]},
+ {h:"Дедлайни й терміновість"},
+ {slab:"ASAP — якнайшвидше (звучить різко)\nby end of day (EOD) · by end of week (EOW)\nat your earliest convenience — коли вам буде зручно (формально)\nno rush · whenever you get a chance — без поспіху"},
+ {h:"Телефон і дзвінки"},
+ {ex:[
+  ["Sorry, could you speak up a little? The line is bad.","Вибачте, можете говорити гучніше? Поганий зв'язок."],
+  ["Let me just check and get back to you.","Дайте я перевірю й повернуся з відповіддю."],
+  ["Can I put you on hold for a second?","Можна вас на секунду поставити на утримання?"],
+  ["Just to confirm — we're meeting at three, right?","Просто щоб упевнитися: зустрічаємося о третій, так?"],
+  ["I'll send you a summary afterwards.","Я потім надішлю вам підсумок."]
+ ]},
+ {warn:"Dear + ім'я по батькові в англійській не існує. До людини, яку не знаєте: Dear Ms Petrenko (не Dear Mrs, якщо не впевнені у статусі). Знайомим колегам — просто Hi Anna."},
+ {h:"Підписи за формальністю"},
+ {slab:"Best regards / Kind regards — нейтрально формально\nBest / Thanks — щоденне робоче\nAll the best — тепло\nYours sincerely — дуже формально, до названої особи"}
+],
+words:[
+ {w:"to follow up",t:"нагадати, повернутися до питання",s:"I'm following up on my email."},
+ {w:"to get back to someone",t:"повернутися з відповіддю",s:"I'll get back to you tomorrow."},
+ {w:"to touch base",t:"коротко звіритися",s:"Let's touch base on Friday."},
+ {w:"a deadline",t:"кінцевий термін",s:"The deadline is Thursday."},
+ {w:"to push back",t:"перенести на пізніше",s:"Can we push the call back an hour?"},
+ {w:"to take something on",t:"взятися за щось",s:"I can't take this on right now."},
+ {w:"fully booked",t:"повністю зайнята",s:"My week is fully booked."},
+ {w:"attached",t:"у вкладенні",s:"Please see the attached file."},
+ {w:"to loop someone in",t:"додати когось у листування",s:"I'll loop Anna in."},
+ {w:"at your earliest convenience",t:"коли вам буде зручно",s:"Reply at your earliest convenience."},
+ {w:"a heads-up",t:"попередження заздалегідь",s:"Thanks for the heads-up."},
+ {w:"to run late",t:"запізнюватися",s:"I'm running about ten minutes late."}
+],
+pats:[
+ {f:"I'm writing to + V1",t:"Пишу, щоб…",s:"I'm writing to confirm the dates."},
+ {f:"I was wondering if you could …",t:"Чи не могли б ви…",s:"I was wondering if you could review this."},
+ {f:"Unfortunately, we won't be able to …",t:"На жаль, ми не зможемо…",s:"Unfortunately, we won't be able to deliver by Friday."},
+ {f:"Would … work for you?",t:"Чи підійде вам…?",s:"Would Tuesday morning work for you?"},
+ {f:"Just to confirm — …",t:"Просто щоб упевнитися…",s:"Just to confirm — the call is at ten?"}
+],
+ex:[
+ {t:"choice",q:"Найввічливіша форма прохання:",o:["Send me the file.","Please send the file.","Could you send me the file?","I was wondering if you could send me the file."],a:3,why:"I was wondering if — найм'якша з наведених."},
+ {t:"gap",q:"I'm ___ up on my previous email about the invoice.",a:["following"],why:"Follow up — нагадати про попередній лист."},
+ {t:"choice",q:"Яка відмова звучить професійно?",o:["No, I can't.","I don't want to do it.","Thanks for thinking of me, but I won't be able to take this on right now.","Impossible."],a:2,why:"Подяка + відмова + пояснення."},
+ {t:"gap",q:"Can we ___ the call back to four? Something came up.",a:["push"],why:"Push back — перенести на пізніше."},
+ {t:"choice",q:"Кому пишуть «Yours sincerely»?",o:["Колезі, з яким обідаєте щодня","Названій на ім'я особі в дуже формальному листі","Групі колег","Ніколи не вживається"],a:1,why:"Yours sincerely — формально, коли адресат названий."},
+ {t:"gap",q:"Thanks for the ___-up about the schedule change.",a:["heads"],why:"A heads-up — завчасне попередження."},
+ {t:"tr",q:"Пишу, щоб запитати, чи не могли б ви перенести дедлайн на понеділок.",a:["I'm writing to ask if you could push the deadline back to Monday.","I'm writing to ask whether you could move the deadline to Monday."],why:"Каркас листа + ввічливе прохання."},
+ {t:"tr",q:"На жаль, цього тижня я не встигну. Наступний вівторок вам підійде?",a:["Unfortunately, I won't be able to manage it this week. Would next Tuesday work for you?","Unfortunately I can't make it this week. Would next Tuesday work for you?"],why:"Відмова з альтернативою."},
+ {t:"match",pairs:[["to loop someone in","додати в листування"],["fully booked","повністю зайнята"],["to touch base","коротко звіритися"],["to run late","запізнюватися"]]}
+],
+hw:"Напишіть три листи по 5–7 речень: прохання перенести дедлайн, ввічлива відмова колезі та нагадування про лист, на який не відповіли. У кожному має бути чіткий перший рядок і конкретний наступний крок."
+},
+
+{
+id:"en22", level:"C1",
+title:"Як розповідати історії",
+short:"Сторітелінг, гумор і англійський understatement",
+goal:"Тримати увагу слухача: будувати історію з напругою, вставляти пряму мову й жартувати так, як жартують носії.",
+theory:[
+ {p:"Історія англійською тримається не на подіях, а на **ритмі**: коротка зав'язка, теперішній час для драматизму, пряма мова замість переказу і різкий фінал."},
+ {h:"Каркас усної історії"},
+ {slab:"1 гачок      So the funniest thing happened yesterday…\n2 обстановка  I was standing in the queue, right,\n3 напруга     and this guy just walks up and…\n4 кульмінація  …and it turns out it was my new boss.\n5 реакція     I wanted the ground to swallow me."},
+ {h:"Теперішній час для минулих подій"},
+ {p:"У живій розповіді носії масово переходять у Present Simple — це прийом, що наближає сцену до слухача. Граматично це не помилка, а **narrative present**."},
+ {ex:[
+  ["So I walk in, and there's nobody there. And then the lights go out.","Отож я заходжу, а там нікого. І тут гасне світло."],
+  ["She looks at me and goes: «You're joking, right?»","Вона дивиться на мене й каже: «Ти жартуєш, так?»"]
+ ]},
+ {h:"Пряма мова замість переказу"},
+ {tbl:{head:["Прісно","Живо"],rows:[
+  ["She said she was angry.","She was like, «Are you serious right now?»"],
+  ["He refused.","He just goes, «Not a chance.»"],
+  ["I was surprised.","I was standing there like… what?"]
+ ]}},
+ {p:"**be like** і **go** у значенні «каже» — суто розмовні, у письмовій мові їх не вживають, але без них усна історія звучить як звіт."},
+ {h:"Слова-скріпки розповіді"},
+ {slab:"So · Anyway · Right · The thing is · Long story short\nOut of nowhere · Next thing I know · And then it hits me\nTurns out · To cut a long story short"},
+ {h:"Understatement — головний англійський гумор"},
+ {p:"Британський гумор будується на **применшенні**: що більша катастрофа, то спокійніша фраза. Це саме те, що іноземцям найважче вловити."},
+ {ex:[
+  ["It's just a scratch. — про повністю розбите крило автівки","Та просто подряпина."],
+  ["That went about as well as expected.","Пройшло рівно так, як і слід було чекати. — тобто жахливо"],
+  ["I've had better days.","Бували в мене дні й кращі."],
+  ["He's not exactly a genius.","Він не те щоб геній."],
+  ["It's a bit chilly, isn't it? — при −15","Трохи прохолодно, правда?"]
+ ]},
+ {h:"Самоіронія"},
+ {p:"Хвалитися прямо в британській культурі незручно. Досягнення подають із самоіронією, і слухач розуміє масштаб сам."},
+ {ex:[
+  ["I somehow managed not to embarrass myself.","Я якось примудрилася не осоромитися. — про вдалий виступ"],
+  ["I'm reliably terrible at directions.","Я стабільно жахлива в орієнтуванні."]
+ ]},
+ {h:"Реакції слухача"},
+ {slab:"No way! · You're kidding · Get out! · Oh my god, what happened next?\nThat's brutal · I can't even · And then what?"},
+ {warn:"Іронію легко не помітити на письмі. Якщо фраза формально нейтральна, але надто спокійна для ситуації, — це майже завжди understatement, а не байдужість."}
+],
+words:[
+ {w:"out of nowhere",t:"нізвідки, раптом",s:"Out of nowhere, he starts singing."},
+ {w:"next thing I know",t:"і тут раптом",s:"Next thing I know, we're at the airport."},
+ {w:"it turns out",t:"виявляється",s:"It turns out she knew all along."},
+ {w:"to be like",t:"каже (розмовне)",s:"And she's like, «No way.»"},
+ {w:"long story short",t:"коротше кажучи",s:"Long story short, we missed it."},
+ {w:"to crack up",t:"розреготатися",s:"Everyone cracked up."},
+ {w:"cringe-worthy",t:"аж соромно",s:"It was cringe-worthy."},
+ {w:"to make a fool of oneself",t:"осоромитися",s:"I made a complete fool of myself."},
+ {w:"deadpan",t:"із незворушним обличчям",s:"He said it completely deadpan."},
+ {w:"an understatement",t:"применшення",s:"«Busy» is an understatement."},
+ {w:"to see it coming",t:"передбачити це",s:"I didn't see that coming."},
+ {w:"the punchline",t:"кульмінація жарту",s:"He forgot the punchline."}
+],
+pats:[
+ {f:"So the funniest thing happened…",t:"Слухай, така кумедна річ сталася…",s:"So the funniest thing happened on the bus."},
+ {f:"Next thing I know, …",t:"І тут раптом…",s:"Next thing I know, everyone's staring at me."},
+ {f:"It turns out (that) …",t:"Виявляється, що…",s:"It turns out we'd met before."},
+ {f:"«Busy» is an understatement",t:"«Зайнята» — це м'яко сказано",s:"«Tired» is an understatement."},
+ {f:"I didn't see that coming",t:"Оцього я не чекала",s:"Honestly, I didn't see that coming."}
+],
+ex:[
+ {t:"choice",q:"Що таке narrative present?",o:["Помилка в часах","Теперішній час для драматизації минулих подій","Різновид Present Perfect","Формальний стиль"],a:1,why:"Прийом усної розповіді, а не помилка."},
+ {t:"choice",q:"«It's just a scratch» про повністю розбиту машину — це:",o:["Брехня","Understatement","Комплімент","Питання"],a:1,why:"Класичне британське применшення."},
+ {t:"gap",q:"___ thing I know, we're standing in the rain with no keys.",a:["Next"],why:"Next thing I know — маркер несподіваного повороту."},
+ {t:"choice",q:"Яка репліка звучить найживіше в усній історії?",o:["She said she was surprised.","She expressed surprise.","She was like, «Are you serious?»","She indicated her surprise."],a:2,why:"Be like + пряма мова оживляє сцену."},
+ {t:"gap",q:"It ___ out we had been on the same flight.",a:["turns","turned"],why:"It turns out — виявляється."},
+ {t:"choice",q:"«He's not exactly a genius» означає:",o:["Він геній","Він точно не розумний","Він трохи розумний","Він скромний"],a:1,why:"Заперечне применшення = різка оцінка в м'якій формі."},
+ {t:"tr",q:"Коротше кажучи, я примудрилася осоромитися перед усією групою.",a:["Long story short, I managed to make a complete fool of myself in front of the whole group.","Long story short, I made a total fool of myself in front of everyone."],why:"Скріпка розповіді + самоіронія."},
+ {t:"tr",q:"І тут раптом виявляється, що ми з нею вчилися в одній школі.",a:["Next thing I know, it turns out we went to the same school.","And then it turns out we had gone to the same school."],why:"Два маркери повороту в одному реченні."},
+ {t:"match",pairs:[["deadpan","незворушно"],["to crack up","розреготатися"],["the punchline","кульмінація жарту"],["out of nowhere","нізвідки"]]}
+],
+hw:"Запишіть голосом історію на дві хвилини про свій найбільш незручний момент. Умови: почніть із гачка, перейдіть у теперішній час у найгарячішій частині, вставте щонайменше дві репліки прямої мови через «be like» і завершіть understatement-ом."
 }
 );
 
@@ -3432,6 +3790,349 @@ hw:"Перекажіть іспанською розмову з 10 реплік 
 }
 );
 
+ES_LESSONS.push(
+{
+id:"es23", level:"A1",
+title:"У барі та кав'ярні",
+short:"Замовити, попросити рахунок, не розгубитися",
+goal:"Впевнено замовляти їжу й напої, розуміти офіціанта і триматися іспанських звичок за столом.",
+theory:[
+ {p:"Бар в Іспанії — не про алкоголь, а про повсякдення: сюди заходять на каву зранку, на пиво з тапас удень і з дітьми ввечері. Замовлення робиться коротко й без зайвої ввічливості — довгі формули тут звучать дивно."},
+ {h:"Найкоротша формула"},
+ {slab:"Un café, por favor.\nPara mí, una caña.\n¿Me pones un café con leche?   ← найприродніше в барі"},
+ {p:"**¿Me pones …?** дослівно «ти мені поставиш?» — так замовляють іспанці. Формальніше: ¿Me pone …? до незнайомого офіціанта старшого віку."},
+ {h:"Кава"},
+ {tbl:{head:["Назва","Що це"],rows:[
+  ["café solo","~еспресо~"],
+  ["café con leche","~половина кави, половина молока~"],
+  ["cortado","~еспресо з краплею молока~"],
+  ["café americano","~еспресо з водою~"],
+  ["descafeinado","~без кофеїну~"],
+  ["café con hielo","~кава з льодом окремо~"]
+ ]}},
+ {h:"Їжа й напої"},
+ {ex:[
+  ["¿Qué tapas tenéis?","Які у вас тапас?"],
+  ["Una caña y una tapa de tortilla, por favor.","Маленьке пиво і порцію тортильї, будь ласка."],
+  ["¿Tenéis algo sin gluten?","У вас є щось без глютену?"],
+  ["Yo no como carne, ¿qué me recomiendas?","Я не їм м'яса, що порадите?"],
+  ["Para compartir, por favor.","Щоб поділити на всіх, будь ласка."],
+  ["Otra ronda, por favor.","Ще по одній, будь ласка."]
+ ]},
+ {h:"Що каже офіціант"},
+ {tbl:{head:["Фраза","Переклад"],rows:[
+  ["¿Qué van a tomar?","Що будете брати?"],
+  ["¿Algo más?","Ще щось?"],
+  ["¿Para tomar aquí o para llevar?","Тут чи із собою?"],
+  ["¿Todo bien?","Усе гаразд?"],
+  ["Ahora mismo se lo traigo.","Зараз принесу."],
+  ["¿Van a pagar juntos o separado?","Разом чи окремо?"]
+ ]}},
+ {h:"Рахунок"},
+ {ex:[
+  ["La cuenta, por favor.","Рахунок, будь ласка."],
+  ["¿Me cobras?","Порахуєш мене?"],
+  ["¿Se puede pagar con tarjeta?","Карткою можна?"],
+  ["Pagamos por separado.","Ми платимо окремо."],
+  ["Quédate con el cambio.","Решту залиште."]
+ ]},
+ {warn:"Чайові в Іспанії не обов'язкові й невеликі: залишити дрібні монети або округлити рахунок — цілком нормально. Десять чи двадцять відсотків тут ніхто не чекає."},
+ {h:"Дрібниці, які видають новачка"},
+ {list:[
+  "**Вода** не приносять безкоштовно — просіть **una botella de agua** або **agua del grifo** (з-під крана, безкоштовно, але не скрізь).",
+  "**Una caña** — маленьке розливне пиво, **un tercio** — пляшка 0,33.",
+  "Обід (**la comida**) о 14:00–15:30, вечеря (**la cena**) о 21:00. Кухня між ними часто зачинена.",
+  "**Menú del día** — комплексний обід із двох страв, десерту й напою за фіксовану ціну."
+ ]},
+ {h:"Розмова цілком"},
+ {ex:[
+  ["— Hola, ¿qué van a tomar? — Dos cañas y una tapa de tortilla, por favor.","— Вітаю, що будете? — Два маленьких пива й порцію тортильї."],
+  ["— ¿Algo más? — No, gracias. ¿Nos cobras?","— Ще щось? — Ні, дякую. Порахуєте нас?"],
+  ["— Son doce euros. ¿Juntos o separado? — Juntos, con tarjeta.","— Дванадцять євро. Разом чи окремо? — Разом, карткою."]
+ ]}
+],
+words:[
+ {w:"la cuenta",t:"рахунок",s:"La cuenta, por favor."},
+ {w:"la caña",t:"маленьке розливне пиво",s:"Dos cañas, por favor."},
+ {w:"el camarero / la camarera",t:"офіціант / офіціантка",s:"El camarero es muy simpático."},
+ {w:"para llevar",t:"із собою",s:"Un café para llevar."},
+ {w:"la tapa",t:"закуска до напою",s:"¿Qué tapas hay?"},
+ {w:"probar",t:"куштувати",s:"Quiero probar el gazpacho."},
+ {w:"la carta",t:"меню",s:"¿Me trae la carta?"},
+ {w:"el postre",t:"десерт",s:"¿Qué hay de postre?"},
+ {w:"sin",t:"без",s:"Sin azúcar, por favor."},
+ {w:"la propina",t:"чайові",s:"Dejamos propina."},
+ {w:"rico / rica",t:"смачний",s:"Está muy rico."},
+ {w:"la ronda",t:"«по одній» на всіх",s:"Esta ronda la pago yo."}
+],
+pats:[
+ {f:"¿Me pones …?",t:"Даси мені…? (у барі)",s:"¿Me pones un cortado?"},
+ {f:"Para mí, …",t:"Мені, будь ласка,…",s:"Para mí, una caña."},
+ {f:"¿Qué me recomiendas?",t:"Що порадиш?",s:"No sé qué pedir, ¿qué me recomiendas?"},
+ {f:"¿Se puede pagar con tarjeta?",t:"Карткою можна?",s:"Perdona, ¿se puede pagar con tarjeta?"},
+ {f:"Está muy rico",t:"Дуже смачно",s:"El pulpo está muy rico."}
+],
+ex:[
+ {t:"choice",q:"Як найприродніше замовити каву в барі?",o:["Yo quiero un café ahora.","¿Me pones un café con leche?","Dame el café.","Necesito café por favor."],a:1,why:"¿Me pones …? — стандартна барна формула."},
+ {t:"choice",q:"Що таке «cortado»?",o:["Кава з великою кількістю молока","Еспресо з краплею молока","Кава з льодом","Кава без кофеїну"],a:1,why:"Cortado — еспресо, «розрізаний» краплею молока."},
+ {t:"gap",q:"La ___, por favor. Queremos pagar.",a:["cuenta"],why:"La cuenta — рахунок."},
+ {t:"choice",q:"Офіціант питає «¿Para tomar aquí o para llevar?». Це про:",o:["Тут чи із собою","Разом чи окремо","З цукром чи без","Гаряче чи холодне"],a:0,why:"Para llevar — із собою."},
+ {t:"gap",q:"¿Tenéis algo ___ gluten?",a:["sin"],why:"Sin — без."},
+ {t:"choice",q:"«Una caña» — це:",o:["Келих вина","Маленьке розливне пиво","Пляшка води","Кава з молоком"],a:1,why:"Caña — невелике розливне пиво."},
+ {t:"tr",q:"Два маленьких пива і порцію тортильї, будь ласка. Карткою можна?",a:["Dos cañas y una tapa de tortilla, por favor. ¿Se puede pagar con tarjeta?","Dos cañas y una tapa de tortilla, por favor. ¿Se puede pagar con tarjeta, por favor?"],why:"Замовлення + питання про оплату."},
+ {t:"tr",q:"Я не їм м'яса — що порадите? І ще пляшку води.",a:["No como carne, ¿qué me recomiendas? Y una botella de agua también.","Yo no como carne, ¿qué me recomienda? Y también una botella de agua."],why:"Обмеження в їжі + прохання поради."},
+ {t:"match",pairs:[["la propina","чайові"],["el postre","десерт"],["la carta","меню"],["probar","куштувати"]]}
+],
+hw:"Напишіть діалог на 14 реплік: ви заходите в бар удвох, питаєте про тапас, замовляєте, щось не подобається, просите рахунок і платите окремо. Половина реплік має бути від офіціанта."
+},
+
+{
+id:"es24", level:"A1",
+title:"Дорога, транспорт, орієнтування",
+short:"Спитати, як пройти, і зрозуміти відповідь",
+goal:"Не загубитися: спитати дорогу, купити квиток і зрозуміти вказівки, сказані швидко.",
+theory:[
+ {p:"Спитати дорогу неважко — важко **зрозуміти відповідь**. Тому тут головне не питання, а вміння впізнати десяток слів напрямку на слух."},
+ {h:"Як спитати"},
+ {ex:[
+  ["Perdona, ¿dónde está la estación?","Вибач, де вокзал?"],
+  ["¿Cómo se llega al centro?","Як дістатися центру?"],
+  ["¿Está lejos de aquí?","Це далеко звідси?"],
+  ["¿Hay una farmacia por aquí cerca?","Тут поблизу є аптека?"],
+  ["¿Me puedes indicar en el mapa?","Можеш показати на карті?"],
+  ["¿Voy bien para la catedral?","Я правильно йду до собору?"]
+ ]},
+ {h:"Слова, які треба впізнати на слух"},
+ {slab:"todo recto — прямо        a la derecha — праворуч\na la izquierda — ліворуч   gira / dobla — поверни\nsigue — іди далі           cruza — перейди\nla esquina — ріг           la manzana — квартал\nal final de — у кінці      enfrente de — навпроти\nal lado de — поруч із      detrás de — позаду"},
+ {ex:[
+  ["Sigue todo recto y gira a la derecha en la segunda esquina.","Іди прямо й поверни праворуч на другому розі."],
+  ["Está al lado del mercado, enfrente de la iglesia.","Це поруч із ринком, навпроти церкви."],
+  ["Cruza la plaza y está al final de la calle.","Перейди площу — це в кінці вулиці."],
+  ["Está a cinco minutos andando.","Це за п'ять хвилин пішки."]
+ ]},
+ {h:"Транспорт"},
+ {tbl:{head:["Фраза","Переклад"],rows:[
+  ["¿Qué autobús va al centro?","Який автобус їде в центр?"],
+  ["Un billete de ida, por favor.","Квиток в один бік."],
+  ["Ida y vuelta.","Туди й назад."],
+  ["¿Cada cuánto pasa?","Як часто ходить?"],
+  ["¿Dónde tengo que bajarme?","Де мені виходити?"],
+  ["¿Tengo que hacer transbordo?","Треба робити пересадку?"],
+  ["¿A qué hora sale el próximo?","О котрій наступний?"]
+ ]}},
+ {h:"Дієслова руху"},
+ {slab:"ir — йти, їхати          venir — приходити\nllegar — прибувати       salir — вирушати, виходити\nbajarse — виходити (з транспорту)   subirse — сідати\ncoger / tomar — брати (транспорт)   perder — пропустити"},
+ {warn:"В Іспанії «coger el autobús» — узяти автобус, цілком нормально. У більшості країн Латинської Америки це дієслово має грубе значення, там кажуть **tomar el autobús**."},
+ {h:"Коли не зрозуміли"},
+ {ex:[
+  ["Más despacio, por favor.","Повільніше, будь ласка."],
+  ["¿Puedes repetirlo?","Можеш повторити?"],
+  ["Entonces, ¿todo recto y luego a la izquierda?","Тобто прямо, а потім ліворуч?"],
+  ["Vale, gracias. ¡Muy amable!","Гаразд, дякую. Дуже люб'язно!"]
+ ]},
+ {p:"Найкорисніший прийом — **переказати почуте своїми словами**: «Entonces, …?» Так ви і перевіряєте себе, і даєте людині шанс виправити."}
+],
+words:[
+ {w:"todo recto",t:"прямо",s:"Sigue todo recto."},
+ {w:"a la derecha",t:"праворуч",s:"Gira a la derecha."},
+ {w:"a la izquierda",t:"ліворуч",s:"Está a la izquierda."},
+ {w:"la esquina",t:"ріг вулиці",s:"En la próxima esquina."},
+ {w:"enfrente de",t:"навпроти",s:"Enfrente del banco."},
+ {w:"cerca / lejos",t:"близько / далеко",s:"¿Está lejos?"},
+ {w:"el billete",t:"квиток",s:"Un billete, por favor."},
+ {w:"la parada",t:"зупинка",s:"La parada está allí."},
+ {w:"bajarse",t:"виходити з транспорту",s:"Me bajo en la próxima."},
+ {w:"andando",t:"пішки",s:"Diez minutos andando."},
+ {w:"perder",t:"пропустити, спізнитися на",s:"He perdido el tren."},
+ {w:"el transbordo",t:"пересадка",s:"Hay que hacer transbordo."}
+],
+pats:[
+ {f:"Perdona, ¿dónde está …?",t:"Вибач, де…?",s:"Perdona, ¿dónde está el metro?"},
+ {f:"¿Cómo se llega a …?",t:"Як дістатися до…?",s:"¿Cómo se llega al aeropuerto?"},
+ {f:"¿Está lejos de aquí?",t:"Це далеко звідси?",s:"¿La playa está lejos de aquí?"},
+ {f:"Entonces, ¿…?",t:"Тобто…?",s:"Entonces, ¿la segunda a la derecha?"},
+ {f:"¿Dónde tengo que bajarme?",t:"Де мені виходити?",s:"Perdone, ¿dónde tengo que bajarme?"}
+],
+ex:[
+ {t:"gap",q:"Sigue ___ recto hasta la plaza.",a:["todo"],why:"Todo recto — прямо."},
+ {t:"choice",q:"«Gira a la izquierda» означає:",o:["Поверни праворуч","Поверни ліворуч","Іди прямо","Перейди дорогу"],a:1,why:"Izquierda — ліворуч."},
+ {t:"gap",q:"Un billete de ida y ___, por favor.",a:["vuelta"],why:"Ida y vuelta — туди й назад."},
+ {t:"choice",q:"Що спитати, якщо не знаєте, де виходити?",o:["¿Dónde está la parada?","¿Dónde tengo que bajarme?","¿Cada cuánto pasa?","¿Está lejos?"],a:1,why:"Bajarse — виходити з транспорту."},
+ {t:"gap",q:"El banco está ___ de la iglesia, justo al otro lado.",a:["enfrente"],why:"Enfrente de — навпроти."},
+ {t:"choice",q:"У Мексиці правильніше сказати:",o:["coger el autobús","tomar el autobús","subir el autobús","llevar el autobús"],a:1,why:"У Латинській Америці вживають tomar."},
+ {t:"tr",q:"Вибачте, як дістатися до вокзалу? Це далеко звідси?",a:["Perdone, ¿cómo se llega a la estación? ¿Está lejos de aquí?","Perdona, ¿cómo se llega a la estación? ¿Está lejos de aquí?"],why:"Два питання, з яких починається будь-яке орієнтування."},
+ {t:"tr",q:"Тобто прямо, а потім ліворуч на другому розі?",a:["Entonces, ¿todo recto y luego a la izquierda en la segunda esquina?","Entonces, ¿sigo todo recto y después giro a la izquierda en la segunda esquina?"],why:"Переказ почутого для перевірки."},
+ {t:"match",pairs:[["la parada","зупинка"],["andando","пішки"],["el transbordo","пересадка"],["la esquina","ріг вулиці"]]}
+],
+hw:"Візьміть карту свого міста й опишіть іспанською дорогу від дому до трьох різних місць — по 4–5 речень на кожен маршрут, із поворотами, орієнтирами й часом у дорозі."
+},
+
+{
+id:"es25", level:"A2",
+title:"У лікаря та в аптеці",
+short:"Пояснити, що болить, і купити ліки",
+goal:"Спокійно пояснити свій стан, зрозуміти питання лікаря й дати раду в аптеці.",
+theory:[
+ {p:"Це та тема, яку ніхто не хоче вчити — і саме вона рятує в подорожі. Мінімум: назвати частину тіла, сказати «болить» і зрозуміти три питання."},
+ {h:"Doler працює як gustar"},
+ {slab:"me / te / le + duele + ~одне~\nme / te / le + duelen + ~кілька~\nMe duele la cabeza.   Me duelen los ojos."},
+ {p:"Дієслово узгоджується не з людиною, а з тим, що болить. Артикль тут **означений**, а не присвійний: іспанська каже «болить голова», а не «моя голова»."},
+ {h:"Тіло"},
+ {slab:"la cabeza — голова     la garganta — горло\nel estómago — живіт    la espalda — спина\nla muela — зуб         el oído — вухо\nla pierna — нога       el brazo — рука\nel pecho — груди       la rodilla — коліно"},
+ {h:"Як описати стан"},
+ {ex:[
+  ["No me encuentro bien.","Мені недобре."],
+  ["Me duele mucho la garganta desde ayer.","У мене від учора дуже болить горло."],
+  ["Tengo fiebre y tos.","У мене температура й кашель."],
+  ["Estoy mareada.","Мене нудить / паморочиться голова."],
+  ["Me he torcido el tobillo.","Я підвернула щиколотку."],
+  ["Soy alérgica a la penicilina.","У мене алергія на пеніцилін."]
+ ]},
+ {h:"Що спитає лікар"},
+ {tbl:{head:["Питання","Переклад"],rows:[
+  ["¿Qué le pasa?","Що з вами?"],
+  ["¿Desde cuándo?","Відколи?"],
+  ["¿Dónde le duele exactamente?","Де саме болить?"],
+  ["¿Tiene alergias?","У вас є алергії?"],
+  ["¿Toma alguna medicación?","Ви щось приймаєте?"],
+  ["¿Le duele al respirar?","Болить при диханні?"]
+ ]}},
+ {h:"В аптеці"},
+ {ex:[
+  ["¿Tiene algo para el dolor de garganta?","У вас є щось від болю в горлі?"],
+  ["¿Esto se vende sin receta?","Це продається без рецепта?"],
+  ["¿Cómo se toma?","Як це приймати?"],
+  ["Una caja de ibuprofeno, por favor.","Упаковку ібупрофену, будь ласка."],
+  ["¿Cada cuántas horas?","Кожні скільки годин?"]
+ ]},
+ {warn:"В Іспанії в аптеці можна отримати першу консультацію безкоштовно — фармацевт має фахову освіту. Але антибіотики без рецепта не продають, і просити їх марно."},
+ {h:"Терміново"},
+ {slab:"urgencias — невідкладна допомога\nel centro de salud — поліклініка\nla tarjeta sanitaria — медична картка\n112 — єдиний номер екстрених служб\nNecesito un médico. — Мені потрібен лікар."},
+ {h:"Розмова цілком"},
+ {ex:[
+  ["— ¿Qué le pasa? — Me duele mucho la garganta y tengo fiebre.","— Що з вами? — Дуже болить горло і є температура."],
+  ["— ¿Desde cuándo? — Desde el domingo, tres días ya.","— Відколи? — З неділі, уже три дні."],
+  ["— ¿Es alérgica a algo? — Sí, a la penicilina.","— У вас є на щось алергія? — Так, на пеніцилін."]
+ ]}
+],
+words:[
+ {w:"doler",t:"боліти",s:"Me duele la cabeza."},
+ {w:"la garganta",t:"горло",s:"Me duele la garganta."},
+ {w:"la fiebre",t:"температура",s:"Tengo fiebre."},
+ {w:"la tos",t:"кашель",s:"Tengo mucha tos."},
+ {w:"mareado / mareada",t:"з запамороченням, нудить",s:"Estoy mareada."},
+ {w:"la receta",t:"рецепт",s:"¿Necesito receta?"},
+ {w:"la farmacia",t:"аптека",s:"La farmacia está abierta."},
+ {w:"el medicamento",t:"ліки",s:"Este medicamento es fuerte."},
+ {w:"alérgico / alérgica a",t:"алергія на",s:"Soy alérgica al polen."},
+ {w:"encontrarse bien",t:"почуватися добре",s:"No me encuentro bien."},
+ {w:"urgencias",t:"невідкладна допомога",s:"Vamos a urgencias."},
+ {w:"la cita",t:"запис на прийом",s:"Tengo cita a las diez."}
+],
+pats:[
+ {f:"Me duele / Me duelen …",t:"У мене болить…",s:"Me duelen las piernas."},
+ {f:"Tengo + симптом",t:"У мене…",s:"Tengo fiebre y tos."},
+ {f:"Desde + час",t:"Відколи",s:"Desde el lunes."},
+ {f:"¿Tiene algo para …?",t:"У вас є щось від…?",s:"¿Tiene algo para la tos?"},
+ {f:"Soy alérgica a …",t:"У мене алергія на…",s:"Soy alérgica a los frutos secos."}
+],
+ex:[
+ {t:"gap",q:"Me ___ (doler) los ojos después del ordenador.",a:["duelen"],why:"Los ojos — множина, тому duelen."},
+ {t:"choice",q:"Як сказати «у мене болить голова»?",o:["Tengo dolor de mi cabeza","Me duele la cabeza","Mi cabeza duele","Estoy dolor de cabeza"],a:1,why:"Doler + означений артикль, без присвійного."},
+ {t:"gap",q:"— ¿ ___ cuándo le duele? — Desde ayer.",a:["Desde"],why:"¿Desde cuándo? — відколи."},
+ {t:"choice",q:"«¿Esto se vende sin receta?» — це питання про:",o:["Ціну","Дозування","Чи потрібен рецепт","Термін придатності"],a:2,why:"Sin receta — без рецепта."},
+ {t:"gap",q:"No me ___ bien, creo que tengo fiebre.",a:["encuentro"],why:"Encontrarse bien — почуватися добре."},
+ {t:"choice",q:"Що означає «Estoy mareada»?",o:["Я втомлена","Мене нудить / паморочиться","Я хвора на грип","Я налякана"],a:1,why:"Mareado — запаморочення або нудота."},
+ {t:"tr",q:"У мене від неділі болить горло і є температура.",a:["Me duele la garganta desde el domingo y tengo fiebre.","Desde el domingo me duele la garganta y tengo fiebre."],why:"Doler + tener для симптомів."},
+ {t:"tr",q:"У вас є щось від кашлю? І чи продається це без рецепта?",a:["¿Tiene algo para la tos? ¿Y se vende sin receta?","¿Tienen algo para la tos? ¿Se vende sin receta?"],why:"Дві головні аптечні фрази."},
+ {t:"match",pairs:[["la receta","рецепт"],["la cita","запис на прийом"],["urgencias","невідкладна допомога"],["la tos","кашель"]]}
+],
+hw:"Складіть свою особисту картку іспанською на випадок подорожі: алергії, ліки, які ви приймаєте, хронічні стани, контакт близької людини — 8–10 рядків. Потім напишіть діалог із фармацевтом на 10 реплік."
+},
+
+{
+id:"es26", level:"B2",
+title:"Іспанія та Латинська Америка",
+short:"Одна мова, двадцять варіантів",
+goal:"Розуміти, чому та сама фраза звучить по-різному в Мадриді, Мехіко й Буенос-Айресі, і свідомо обрати свій варіант.",
+theory:[
+ {p:"Іспанською говорять понад двадцять країн, і різниця між ними більша, ніж між британською й американською англійською. Розуміти варто всі варіанти, говорити — послідовно одним."},
+ {h:"Головна граматична різниця: vosotros"},
+ {tbl:{head:["","Іспанія","Латинська Америка"],rows:[
+  ["«ви» до друзів","~vosotros~ habláis","~ustedes~ hablan"],
+  ["наказ","~hablad~","~hablen~"],
+  ["присвійне","~vuestro~","~su / de ustedes~"]
+ ]}},
+ {p:"У Латинській Америці **vosotros не вживають узагалі** — тільки ustedes, і до друзів, і до незнайомих. Це спрощує життя: одна форма замість двох."},
+ {h:"Voseo: аргентинське vos"},
+ {slab:"Іспанія:      tú hablas · tú tienes · tú vienes\nАргентина:    vos ~hablás~ · vos ~tenés~ · vos ~venís~\nнаказ:        ~hablá~ · ~tené~ · ~vení~"},
+ {p:"Voseo панує в Аргентині, Уругваї, Парагваї, значній частині Центральної Америки. Наголос переходить на останній склад, і форма стає прозорою."},
+ {h:"Час минулий"},
+ {ex:[
+  ["Іспанія: Hoy he comido muy bien.","Сьогодні я добре поїла. — pretérito perfecto"],
+  ["Лат. Америка: Hoy comí muy bien.","Те саме, але через indefinido."]
+ ]},
+ {p:"Для сьогоднішніх подій Іспанія майже завжди бере perfecto, більшість Америки — indefinido. Обидва правильні, але змішувати їх в одному тексті не варто."},
+ {h:"Вимова"},
+ {tbl:{head:["Явище","Іспанія","Америка"],rows:[
+  ["c/z перед e, i","~θ~ (як англ. th): gracias","~s~: gracias"],
+  ["ll / y","~й~","~ж/ш~ в Аргентині: calle = «каше»"],
+  ["s у кінці складу","чітко","часто ~ковтається~: ehtá bien"]
+ ]}},
+ {h:"Слова, які підводять"},
+ {tbl:{head:["Іспанія","Америка","Значення"],rows:[
+  ["coche","carro / auto","автомобіль"],
+  ["móvil","celular","мобільний"],
+  ["ordenador","computadora","комп'ютер"],
+  ["patata","papa","картопля"],
+  ["zumo","jugo","сік"],
+  ["piso","departamento","квартира"],
+  ["conducir","manejar","керувати авто"],
+  ["billete","boleto","квиток"],
+  ["gafas","lentes / anteojos","окуляри"]
+ ]}},
+ {warn:"Кілька слів мають в різних країнах геть різне, часом непристойне значення — coger, concha, pija. Найбезпечніше правило: для «брати транспорт» усюди годиться tomar, а не coger."},
+ {h:"Ввічливість і тон"},
+ {p:"Іспанія говорить прямо: «Ponme un café» без «будь ласка» — не грубість, а норма. Мексика й Колумбія значно церемонніші: там природні довгі формули на кшталт **¿Sería tan amable de …?** і часте вживання usted навіть із ровесниками."},
+ {h:"Що обрати"},
+ {p:"Для навчання логічно триматися **іспанського варіанта** — він у більшості підручників, серіалів і курсів, а vosotros краще знати активно, бо в Америці вас однаково зрозуміють. Якщо ж вас тягне до конкретної країни, беріть її варіант цілком: вимову, лексику й час."}
+],
+words:[
+ {w:"el celular",t:"мобільний (Америка)",s:"Se me quedó el celular en casa."},
+ {w:"el carro",t:"машина (Америка)",s:"Vamos en carro."},
+ {w:"la computadora",t:"комп'ютер (Америка)",s:"Mi computadora es vieja."},
+ {w:"el departamento",t:"квартира (Америка)",s:"Alquilé un departamento."},
+ {w:"manejar",t:"керувати авто (Америка)",s:"No sé manejar."},
+ {w:"el jugo",t:"сік (Америка)",s:"Un jugo de naranja."},
+ {w:"vos",t:"ти (Аргентина)",s:"¿Vos qué pensás?"},
+ {w:"che",t:"агов, слухай (Аргентина)",s:"Che, ¿vamos?"},
+ {w:"ahorita",t:"зараз, за хвилинку (Мексика)",s:"Ahorita voy."},
+ {w:"vale",t:"гаразд (Іспанія)",s:"Vale, nos vemos."},
+ {w:"guay",t:"класно (Іспанія)",s:"¡Qué guay!"},
+ {w:"chévere / padre",t:"класно (Америка)",s:"¡Qué chévere!"}
+],
+pats:[
+ {f:"¿Vos qué pensás?",t:"А ти що думаєш? (voseo)",s:"Che, ¿vos qué pensás de esto?"},
+ {f:"¿Ustedes vienen?",t:"Ви йдете? (Америка)",s:"¿Ustedes vienen con nosotros?"},
+ {f:"¿Vosotros venís?",t:"Ви йдете? (Іспанія)",s:"¿Vosotros venís o no?"},
+ {f:"Hoy comí / Hoy he comido",t:"Сьогодні я поїла — два варіанти",s:"Hoy comí temprano."},
+ {f:"¿Sería tan amable de …?",t:"Чи не були б ви такі люб'язні…?",s:"¿Sería tan amable de ayudarme?"}
+],
+ex:[
+ {t:"choice",q:"У Мексиці до групи друзів звертаються:",o:["vosotros","ustedes","vos","tú"],a:1,why:"Vosotros у Латинській Америці не вживають зовсім."},
+ {t:"gap",q:"Аргентинською «ти маєш» — vos ___.",a:["tenés"],why:"Voseo: наголос переходить на закінчення."},
+ {t:"choice",q:"«El zumo» в Мексиці назвуть:",o:["el jugo","el agua","la bebida","el refresco"],a:0,why:"Zumo — Іспанія, jugo — Америка."},
+ {t:"choice",q:"«Hoy comí muy bien» — це варіант:",o:["Іспанії","Латинської Америки","Помилковий","Формальний"],a:1,why:"Для сьогоднішніх подій Америка бере indefinido."},
+ {t:"gap",q:"В Іспанії машина — el coche, у Колумбії — el ___.",a:["carro"],why:"Carro — американський варіант."},
+ {t:"choice",q:"Яке дієслово безпечне для «взяти автобус» усюди?",o:["coger","tomar","llevar","agarrar"],a:1,why:"Tomar нейтральне в усіх країнах."},
+ {t:"tr",q:"В Іспанії кажуть «móvil», а в Аргентині — «celular».",a:["En España dicen «móvil» y en Argentina «celular».","En España se dice «móvil» y en Argentina, «celular»."],why:"Порівняння лексики двох варіантів."},
+ {t:"tr",q:"Ви (до друзів в Іспанії) йдете з нами чи залишаєтеся?",a:["¿Vosotros venís con nosotros o os quedáis?","¿Venís con nosotros o os quedáis?"],why:"Vosotros із зворотним дієсловом quedarse."},
+ {t:"match",pairs:[["guay","класно (Іспанія)"],["chévere","класно (Америка)"],["ahorita","за хвилинку"],["manejar","керувати авто"]]}
+],
+hw:"Оберіть одну країну, яка вам цікава, і складіть її мовний портрет на 12 пунктів: займенники, час минулий, три особливості вимови, шість характерних слів і одна фраза ввічливості. Потім перепишіть будь-який свій старий текст у цьому варіанті."
+}
+);
+
 /* більше прикладів до кожного уроку — показуються окремим блоком */
 const MORE = {
 en1:[
@@ -4286,7 +4987,7 @@ function startTrain(kind){
 }
 
 /* ---------------- вкладка «Картки» ---------------- */
-let cardFilter="all", nw={w:"",t:"",s:""}, formOpen=false;
+let cardFilter="all", nw={w:"",t:"",s:""}, formOpen=false, editId=null;
 function tabCards(c){
   const all=courseCards(c.id), due=dueCards(c.id), own=all.filter(x=>x.own);
   const pats=all.filter(x=>kindOf(x)==="pat"), words=all.filter(x=>kindOf(x)==="word");
@@ -4299,9 +5000,9 @@ function tabCards(c){
       <input type="text" id="nt" value="${ea(nw.t)}" oninput="nw.t=this.value">
       <label>Приклад (необов’язково)</label>
       <input type="text" id="ns" value="${ea(nw.s)}" oninput="nw.s=this.value" autocapitalize="none">
-      <button class="btn" onclick="saveOwn()">Додати картку</button>
-      <button class="btn ghost sm" onclick="formOpen=false;render()">Скасувати</button>
-    </div>` : `<button class="btn ghost" onclick="formOpen=true;render()">Додати свою картку</button>`;
+      <button class="btn" onclick="saveOwn()">${editId?"Зберегти зміни":"Додати картку"}</button>
+      <button class="btn ghost sm" onclick="formOpen=false;editId=null;nw={w:'',t:'',s:''};render()">Скасувати</button>
+    </div>` : `<button class="btn ghost" onclick="formOpen=true;editId=null;render()">Додати свою картку</button>`;
   return `<div class="cstat">
       <div><b>${due.length}</b><span>НА СЬОГОДНІ</span></div>
       <div><b>${all.length}</b><span>УСЬОГО</span></div>
@@ -4312,19 +5013,43 @@ function tabCards(c){
     ${form}
     <div class="chiprow" style="margin-top:18px">${chip("all","Усі "+all.length)}${chip("words","Слова "+words.length)}${chip("pats","Конструкції "+pats.length)}${chip("own","Мої "+own.length)}</div>
     ${list.length?`<div class="card">${list.slice(0,300).map(x=>`<div class="crow">
-        ${spk(clean(x.w),c.id)}
-        <div class="l"><div class="cw">${esc(x.w)}</div><div class="ct">${esc(x.t)}</div>${x.s?`<div style="color:var(--dim);font-size:12.5px;font-style:italic">${esc(x.s)}</div>`:""}</div>
-        <span class="box">${kindOf(x)==="pat"?"конструкція · ":""}${x.box>=6?"✓":"етап "+x.box}</span>
-        <button class="del" onclick="delCard('${ea(x.id).replace(/'/g,"\\'")}')" aria-label="Видалити">×</button>
+        <div class="ctop">
+          <span class="box">${kindOf(x)==="pat"?"конструкція":"слово"}</span>
+          <span class="box">${x.box>=6?"засвоєно":"етап "+(x.box||0)}</span>
+          ${x.own?`<span class="box own">моя</span>`:""}
+          <span class="cact">
+            ${x.own?`<button class="del" onclick="editCard('${ea(x.id).replace(/'/g,"\\'")}')" aria-label="Редагувати">✎</button>`:""}
+            <button class="del" onclick="delCard('${ea(x.id).replace(/'/g,"\\'")}')" aria-label="Видалити">×</button>
+          </span>
+        </div>
+        <div class="cbody">
+          ${spk(clean(x.w),c.id)}
+          <div class="l"><div class="cw">${esc(x.w)}</div><div class="ct">${esc(x.t)}</div>${x.s?`<div class="cs">${esc(x.s)}</div>`:""}</div>
+        </div>
       </div>`).join("")}</div>`
       :`<div class="empty">Тут порожньо. Картки з’являються, коли ви проходите урок, або коли додаєте свої.</div>`}`;
+}
+function editCard(id){
+  const x=P.cards.find(y=>y.id===id); if(!x) return;
+  editId=id; nw={w:x.w,t:x.t,s:x.s||""}; formOpen=true; render();
+  setTimeout(()=>{ const e=document.getElementById("nw"); if(e) e.focus(); },50);
 }
 function saveOwn(){
   const w=(document.getElementById("nw").value||"").trim();
   const t=(document.getElementById("nt").value||"").trim();
   const s=(document.getElementById("ns").value||"").trim();
   if(!w || !t){ toast("Потрібні і слово, і переклад"); return; }
-  if(!addCard(view.c,w,t,s,1)){ toast("Така картка вже є"); return; }
+  if(editId){
+    const card=P.cards.find(x=>x.id===editId);
+    if(card){
+      const newId=cardId(card.c,w);
+      if(newId!==card.id && P.cards.some(x=>x.id===newId)){ toast("Така картка вже є"); return; }
+      card.id=newId; card.w=w; card.t=t; card.s=s;
+    }
+    editId=null; nw={w:"",t:"",s:""}; formOpen=false; saveP(); render(); toast("Збережено");
+    return;
+  }
+  if(!addCard(view.c,w,t,s,1,"word")){ toast("Така картка вже є"); return; }
   nw={w:"",t:"",s:""}; formOpen=false; addXp(2); saveP(); render(); toast("Картку додано");
 }
 function startSrs(){
@@ -4465,6 +5190,94 @@ function srsGrade(okFlag){
   }
   saveP(); view.checked=null; view.pending=null; view.shown=false; view.i++;
   render(); window.scrollTo(0,0);
+}
+
+/* ---------------- щоденник помилок ---------------- */
+function courseErrs(cid){ return P.errs.filter(e=>e.c===cid); }
+function screenErrors(){
+  const c=COURSES[view.c]; setAccent(c);
+  const list=courseErrs(c.id).slice().reverse();
+  const body = list.length
+    ? `<button class="btn" onclick="startErrs()">Повторити ${Math.min(list.length,12)} ${plural(Math.min(list.length,12),"помилку","помилки","помилок")}</button>
+       <div class="card">${list.map(e=>`<div class="errrow">
+         <div class="ehead"><span>${esc(e.from)}</span><span>${esc(e.date)}</span></div>
+         <div class="eq">${esc(e.q)}</div>
+         ${e.your?`<div class="ey">ваша відповідь: ${esc(e.your)}</div>`:""}
+         <div class="ec">${esc(e.cor)}</div>
+         ${e.why?`<div class="ew">${esc(e.why)}</div>`:""}
+         <button class="del" style="margin-top:8px" onclick="dropErr('${ea(e.k).replace(/'/g,"\\'")}')" aria-label="Прибрати">×</button>
+       </div>`).join("")}</div>
+       <button class="btn ghost sm" onclick="wipeErrs()">Очистити журнал</button>`
+    : `<div class="empty">Журнал порожній. Сюди автоматично потрапляє кожне завдання, у якому ви схибили — разом із вашою відповіддю, правильною і поясненням. Запис зникає, щойно ви відповісте правильно.</div>`;
+  return header("Щоденник помилок",`go({s:'course',c:'${c.id}',tab:'train'})`)+`<div class="wrap"><div style="padding-top:10px"></div>${body}<div class="foot">виправлене зникає само</div></div>`;
+}
+function startErrs(){
+  const list=courseErrs(view.c);
+  if(!list.length){ toast("Журнал порожній"); return; }
+  const items=shuffle(list).slice(0,12).map(e=>Object.assign({},e.item,{from:e.from}));
+  go({s:"ex",mode:"errs",c:view.c,items,i:0,ok:0,log:[]});
+}
+function dropErr(k){ P.errs=P.errs.filter(e=>e.k!==k); saveP(); render(); }
+function wipeErrs(){ P.errs=P.errs.filter(e=>e.c!==view.c); saveP(); render(); toast("Журнал очищено"); }
+
+/* ---------------- тексти для читання ---------------- */
+function normWord(s){ return s.toLowerCase().replace(/[¿¡.,;:!?"«»()\u2014\u2013]/g,"").replace(/[\u2019']$/,"").trim(); }
+function glossify(str,gloss){
+  const tok=str.split(/(\s+)/); let out=[], i=0;
+  while(i<tok.length){
+    if(/^\s*$/.test(tok[i])){ out.push(esc(tok[i])); i++; continue; }
+    let hit=null;
+    for(let n=3;n>=1;n--){
+      const span=tok.slice(i,i+n*2-1).join("");
+      const key=normWord(span);
+      if(key && gloss[key]){ hit={n,span,key}; break; }
+    }
+    if(hit){ out.push(`<span class="gl" data-t="${ea(gloss[hit.key])}" data-w="${ea(hit.span)}" onclick="glossTap(this)">${esc(hit.span)}</span>`); i+=hit.n*2-1; }
+    else { out.push(esc(tok[i])); i++; }
+  }
+  return out.join("");
+}
+function renderPar(par,gloss){
+  return par.split(/\*\*(.+?)\*\*/g).map((p,i)=> i%2 ? `<b class="hg">${glossify(p,gloss)}</b>` : glossify(p,gloss)).join("");
+}
+function glossTap(el){
+  toast(el.dataset.w+" — "+el.dataset.t);
+  say(el.dataset.w, view.c||"en");
+}
+function plainPar(par){ return par.replace(/\*\*/g,""); }
+function tabTexts(c){
+  const list=TEXTS.filter(t=>t.c===c.id);
+  return list.map(t=>`<button class="lesson" onclick="go({s:'text',c:'${c.id}',id:'${t.id}',tr:false})">
+      <span class="n" style="font-size:13px">${t.level}</span>
+      <span class="l"><h3>${esc(t.title)}</h3><p>${esc(t.sub)} · ${t.par.length} абзаци · ${t.q.length} питання</p></span>
+    </button>`).join("") || `<div class="empty">Текстів поки немає.</div>`;
+}
+function screenText(){
+  const c=COURSES[view.c]; setAccent(c);
+  const t=TEXTS.find(x=>x.id===view.id);
+  const pars=t.par.map((p,i)=>`<div class="tpar">
+      <div class="ptxt">${renderPar(p,t.gloss)}</div>
+      <div class="prow">${spk(plainPar(p),c.id)}${view.tr?`<div class="ptr">${esc(t.tr[i])}</div>`:""}</div>
+    </div>`).join("");
+  return header("Текст · "+t.level,`go({s:'course',c:'${c.id}',tab:'base'})`)+`<div class="wrap">
+    <div class="lhero"><div class="num">${t.level} · ЧИТАННЯ</div><h1>${esc(t.title)}</h1></div>
+    <div class="goal">Підкреслені слова можна натиснути — покажу переклад і прочитаю вголос. Виділені кольором місця — це ${esc(t.sub)}.</div>
+    <div class="card">${pars}</div>
+    <div class="row">
+      <button class="btn ghost sm" onclick="view.tr=!view.tr;render()">${view.tr?"Сховати переклад":"Показати переклад"}</button>
+      <button class="btn ghost sm" onclick="sayAll('${t.id}')">Прослухати весь текст</button>
+    </div>
+    <button class="btn" onclick="startTextQ('${t.id}')">Питання до тексту · ${t.q.length}</button>
+    <div class="foot">${t.par.join(" ").split(/\s+/).length} слів</div>
+  </div>`;
+}
+function sayAll(id){
+  const t=TEXTS.find(x=>x.id===id);
+  say(t.par.map(plainPar).join(" "), t.c);
+}
+function startTextQ(id){
+  const t=TEXTS.find(x=>x.id===id);
+  go({s:"ex",mode:"text",textId:id,c:t.c,items:t.q.map(q=>Object.assign({t:"choice"},q,{from:"Текст: "+t.title})),i:0,ok:0,log:[]});
 }
 
 /* ---------------- урок ---------------- */
