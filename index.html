@@ -4715,7 +4715,7 @@ const kindOf = x => x.kind || "word";
 function courseCards(cid){ return P.cards.filter(x=>x.c===cid); }
 function dueCards(cid){ const t=today(); return courseCards(cid).filter(x=>!x.due || x.due<=t); }
 function delCard(id){ P.cards=P.cards.filter(x=>x.id!==id); saveP(); render(); }
-function learned(cid){ return courseCards(cid).filter(x=>x.box>=4).length; }
+function learned(cid){ return courseCards(cid).filter(x=>x.box>=6).length; }
 function plural(n,a,b,c){ const m=n%100, k=n%10; if(m>=11&&m<=14) return c; if(k===1) return a; if(k>=2&&k<=4) return b; return c; }
 
 /* ---------------- встановлення ---------------- */
@@ -5367,7 +5367,6 @@ function screenEx(){
   if(it.t==="listen") setTimeout(()=>say(it.text,it.lang),450);
   return header(title,back)+`<div class="wrap"><div style="padding-top:20px">
     <div class="dots">${dots}</div>
-    ${it.from?`<div class="qhint">${esc(it.from)}</div>`:""}
     <div id="qbox">${qBody(it)}</div>
   </div><div class="foot">${view.i+1} / ${view.items.length}</div></div>`;
 }
