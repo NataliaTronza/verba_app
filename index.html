@@ -5195,6 +5195,288 @@ Object.values(COURSES).forEach(c=>{
 const ALL = [...EN_LESSONS,...ES_LESSONS];
 const courseOf = id => id.startsWith("en") ? COURSES.en : COURSES.es;
 
+/* додаткові вправи до англійських уроків B1 — по 11 на урок */
+const EX_EXTRA = {
+
+en1:[
+ {t:"choice",q:"— Why are you smiling? — I ___ a new job!",
+  o:["found","have found","had found","was finding"],a:1,
+  why:"Радість саме зараз — важливий результат, а не момент у минулому."},
+ {t:"choice",q:"Яке речення НЕправильне?",
+  o:["I have lived here since 2020.","I lived here from 2015 to 2019.","I have lived here in 2020.","I have lived here for three years."],a:2,
+  why:"«In 2020» — закритий період, із ним Present Perfect неможливий."},
+ {t:"gap",q:"She ___ (not / see) her brother since the wedding.",
+  a:["hasn't seen","has not seen","hasnt seen"],
+  why:"Since + дія тягнеться до цього моменту → Present Perfect."},
+ {t:"gap",q:"When ___ (you / start) learning Spanish?",
+  a:["did you start"],
+  why:"Питання «коли» завжди про закритий момент, тому Past Simple."},
+ {t:"gap",q:"This is the second time I ___ (call) him today.",
+  a:["have called","'ve called","ve called"],
+  why:"Після «It's the … time» вживають Present Perfect."},
+ {t:"choice",q:"— Where's Anna? — She ___ to the shop, she'll be back soon.",
+  o:["has been","has gone","went","is been"],a:1,
+  why:"Has gone — пішла і ще там. Has been означало б, що вже повернулася."},
+ {t:"choice",q:"We've known each other ___ we were children.",
+  o:["for","since","during","from"],a:1,
+  why:"Since + точка в часі (подія, момент), for + тривалість."},
+ {t:"tr",q:"Я тричі дивилася цей фільм, але вперше побачила його ще в школі.",
+  a:["I have watched this film three times, but I first saw it at school.","I've seen this film three times, but I first saw it back at school."],
+  why:"Досвід без дати — Present Perfect; «ще в школі» — закритий час, Past Simple."},
+ {t:"tr",q:"Ти вже обідала? — Так, я поїла годину тому.",
+  a:["Have you had lunch yet? — Yes, I ate an hour ago.","Have you eaten yet? — Yes, I had lunch an hour ago."],
+  why:"Yet тягне Present Perfect, ago — Past Simple."},
+ {t:"choice",q:"Яке речення означає, що вона досі там працює?",
+  o:["She worked at the bank for five years.","She has worked at the bank for five years.","She was working at the bank.","She worked at the bank in 2020."],a:1,
+  why:"Present Perfect із for доводить дію до теперішнього моменту."},
+ {t:"match",pairs:[["yet","ще (у питанні й запереченні)"],["ago","тому"],["so far","поки що"],["the other day","днями"]]}
+],
+
+en2:[
+ {t:"choice",q:"Your jacket smells of smoke. ___?",
+  o:["Have you smoked","Have you been smoking","Did you smoke","Are you smoking"],a:1,
+  why:"Процес щойно закінчився і залишив помітний слід."},
+ {t:"choice",q:"I ___ four emails this morning — look, they're all sent.",
+  o:["have been writing","have written","am writing","was writing"],a:1,
+  why:"Названа кількість = результат, тому простий Present Perfect."},
+ {t:"gap",q:"I ___ (wait) for this parcel for three weeks!",
+  a:["have been waiting","'ve been waiting","ve been waiting"],
+  why:"Тривалість + роздратування — класичний Perfect Continuous."},
+ {t:"gap",q:"How long ___ (you / learn) Spanish?",
+  a:["have you been learning","have you learnt","have you learned"],
+  why:"Питання про тривалість до цього моменту; з learn можливі обидві форми."},
+ {t:"choice",q:"Яке речення НЕправильне?",
+  o:["I've been thinking about it all week.","She's been feeling tired lately.","I've been knowing him for years.","They've been arguing again."],a:2,
+  why:"Know — дієслово стану, у Continuous не вживається."},
+ {t:"gap",q:"She's out of breath because she ___ (run).",
+  a:["has been running","'s been running","s been running"],
+  why:"Процес щойно завершився, наслідок видно зараз."},
+ {t:"choice",q:"I've been working here ___ March.",
+  o:["for","since","during","from"],a:1,
+  why:"March — точка в часі, отже since."},
+ {t:"tr",q:"Я вже пів години шукаю ключі й досі не знайшла.",
+  a:["I have been looking for my keys for half an hour and I still haven't found them.","I've been looking for the keys for half an hour and still haven't found them."],
+  why:"Процес у Continuous, результат — у простому Perfect."},
+ {t:"tr",q:"Що ти робила весь ранок? — Прибирала.",
+  a:["What have you been doing all morning? — Cleaning.","What have you been doing all morning? — I've been cleaning."],
+  why:"Питання про заповнений процесом період."},
+ {t:"choice",q:"Чим «I've been reading this book» відрізняється від «I've read this book»?",
+  o:["Нічим","Перше — процес триває, друге — книжку дочитано","Перше про минуле, друге про майбутнє","Перше неправильне"],a:1,
+  why:"Continuous — про процес, простий Perfect — про результат."},
+ {t:"match",pairs:[["lately","останнім часом"],["so far","поки що"],["all day","цілий день"],["ever since","відтоді й досі"]]}
+],
+
+en3:[
+ {t:"choice",q:"By the time we arrived, the film ___.",
+  o:["already started","has already started","had already started","was already starting"],a:2,
+  why:"Дія сталася раніше за нашу появу → Past Perfect."},
+ {t:"gap",q:"She told me she ___ (never / be) abroad before.",
+  a:["had never been"],
+  why:"Переказ досвіду, що передує моменту розмови."},
+ {t:"gap",q:"I didn't recognise her — she ___ (cut) her hair.",
+  a:["had cut","'d cut","d cut"],
+  why:"Стрижка була раніше за зустріч."},
+ {t:"choice",q:"У якому реченні Past Perfect НЕ потрібен?",
+  o:["After she had left, I found her scarf.","He was tired because he had worked all night.","I had eaten before I left.","She opened the door and walked in."],a:3,
+  why:"Дві послідовні дії в одному ланцюгу — обидві в Past Simple."},
+ {t:"gap",q:"They ___ (date) for a year before they moved in together.",
+  a:["had been dating","'d been dating","d been dating"],
+  why:"Тривалий процес до точки в минулому."},
+ {t:"choice",q:"It was the first time I ___ alone.",
+  o:["travelled","have travelled","had travelled","was travelling"],a:2,
+  why:"Після «It was the first time» ставлять Past Perfect."},
+ {t:"choice",q:"Яке речення НЕправильне?",
+  o:["When I arrived, she had already gone.","I had finished the report yesterday at six.","We had been walking for hours when it started to rain.","She said she had forgotten."],a:1,
+  why:"Точний час у минулому без другої події вимагає Past Simple: I finished at six."},
+ {t:"tr",q:"Коли я прийшла додому, вони вже пішли.",
+  a:["When I got home, they had already left.","When I came home, they had already gone."],
+  why:"Їхній відхід передує моєму приходу."},
+ {t:"tr",q:"Вона була втомлена, бо цілу ніч працювала.",
+  a:["She was tired because she had been working all night.","She was exhausted because she had worked all night."],
+  why:"Причина-процес до минулої точки → Past Perfect Continuous."},
+ {t:"choice",q:"«I was reading when the phone rang» — яку роль тут грає Past Continuous?",
+  o:["Передісторію","Фон, на якому сталася подія","Завершену дію","Звичку"],a:1,
+  why:"Past Continuous малює фон, Past Simple — подію, що його перериває."},
+ {t:"match",pairs:[["by the time","на той час, коли"],["as soon as","щойно"],["beforehand","заздалегідь"],["eventually","зрештою"]]}
+],
+
+en4:[
+ {t:"choice",q:"— We're out of milk. — Oh, I ___ some on my way home.",
+  o:["am getting","will get","get","am going to get"],a:1,
+  why:"Рішення народилося в момент мовлення → will."},
+ {t:"choice",q:"I ___ the dentist at four, it's in my calendar.",
+  o:["will see","see","am seeing","will be seeing"],a:2,
+  why:"Домовленість із часом і людьми → Present Continuous."},
+ {t:"gap",q:"If it ___ (rain) tomorrow, we'll stay in.",
+  a:["rains"],
+  why:"Після if у майбутньому ставлять теперішній час, не will."},
+ {t:"gap",q:"This time next week I ___ (lie) on a beach.",
+  a:["will be lying","'ll be lying","ll be lying"],
+  why:"Процес у конкретний момент майбутнього → Future Continuous."},
+ {t:"gap",q:"By December I ___ (finish) the course.",
+  a:["will have finished","'ll have finished","ll have finished"],
+  why:"Дія завершиться до точки в майбутньому → Future Perfect."},
+ {t:"choice",q:"The train ___ at 6:40 — it says so on the ticket.",
+  o:["will leave","leaves","is leaving","is going to leave"],a:1,
+  why:"Розклад передають Present Simple."},
+ {t:"choice",q:"Яке речення НЕправильне?",
+  o:["I'll call you when I get home.","As soon as she arrives, we'll start.","I'll call you when I will get home.","If you need help, let me know."],a:2,
+  why:"Після when у значенні майбутнього will не ставлять."},
+ {t:"tr",q:"Я збиралася тобі подзвонити, але геть забула.",
+  a:["I was going to call you, but I completely forgot.","I was going to ring you, but I totally forgot."],
+  why:"Was going to — намір, що не здійснився."},
+ {t:"tr",q:"Щойно я закінчу, напишу тобі.",
+  a:["As soon as I finish, I'll text you.","As soon as I'm done, I'll message you."],
+  why:"As soon as + Present Simple, головна частина — will."},
+ {t:"choice",q:"Чому «Will you be coming tonight?» звучить м'якше за «Will you come tonight?»",
+  o:["Воно формальніше","Питає про хід подій, а не про рішення","Це питання про минуле","Різниці немає"],a:1,
+  why:"Future Continuous не тисне на людину, а цікавиться, як складеться."},
+ {t:"match",pairs:[["to be due to","мати відбутися за планом"],["to be likely to","імовірно, зробить"],["to be about to","ось-ось зробити"],["chances are","схоже на те, що"]]}
+],
+
+en5:[
+ {t:"choice",q:"If I ___ more free time, I'd take up the guitar.",
+  o:["have","had","will have","would have"],a:1,
+  why:"Уявна умова зараз → другий тип: if + Past Simple."},
+ {t:"gap",q:"If I ___ (be) you, I'd say no.",
+  a:["were","was"],
+  why:"У порадах усталена форма — if I were you."},
+ {t:"gap",q:"___ you hurry, you'll miss the bus.",
+  a:["Unless"],
+  why:"Unless = if not: «якщо не поквапишся»."},
+ {t:"choice",q:"If you heat water to 100 degrees, it ___.",
+  o:["will boil","boils","would boil","boiled"],a:1,
+  why:"Загальний закон природи → нульовий тип, обидві частини в Present."},
+ {t:"gap",q:"What would you do if you ___ (win) the lottery?",
+  a:["won"],
+  why:"Малоймовірна ситуація → другий тип."},
+ {t:"choice",q:"Яке речення НЕправильне?",
+  o:["If she calls, tell her I'm out.","If it will rain, we'll cancel.","If I had a car, I'd drive you.","If you're tired, go to bed."],a:1,
+  why:"Після if не ставлять will — тільки «If it rains»."},
+ {t:"choice",q:"Take an umbrella ___ it rains.",
+  o:["if","in case","unless","as long as"],a:1,
+  why:"In case — запобіжна дія наперед, а не умова."},
+ {t:"tr",q:"Якщо побачиш її сьогодні, передай їй привіт.",
+  a:["If you see her today, say hi from me.","If you see her today, give her my regards."],
+  why:"Перший тип: if + Present, головна — наказовий спосіб."},
+ {t:"tr",q:"Якби я краще знала іспанську, я б працювала там.",
+  a:["If I knew Spanish better, I would work there.","If my Spanish were better, I'd work there."],
+  why:"Другий тип: нереальна умова в теперішньому."},
+ {t:"choice",q:"«You can stay as long as you're quiet» означає:",
+  o:["Можеш лишитися надовго","Можеш лишитися за умови, що будеш тихо","Лишайся, доки не стане тихо","Можеш лишитися, якщо хочеш"],a:1,
+  why:"As long as вводить умову, а не тривалість."},
+ {t:"match",pairs:[["otherwise","інакше, а то"],["provided that","за умови що"],["to give it a go","спробувати"],["to have second thoughts","засумніватися"]]}
+],
+
+en6:[
+ {t:"choice",q:"She's been travelling all day — she ___ exhausted.",
+  o:["can be","must be","should be","might be not"],a:1,
+  why:"Логічний висновок із очевидного доказу → must."},
+ {t:"choice",q:"You ___ seen my brother yesterday — he was in Lviv all week.",
+  o:["mustn't have","can't have","shouldn't have","needn't have"],a:1,
+  why:"Упевнене заперечення про минуле — can't have + V3."},
+ {t:"gap",q:"She isn't picking up. She ___ (be) in a meeting right now.",
+  a:["might be","may be","could be","must be"],
+  why:"Здогад про те, що відбувається зараз: modal + be."},
+ {t:"gap",q:"I'm so sorry — I ___ (tell) you earlier.",
+  a:["should have told","should've told","shouldve told"],
+  why:"Should have + V3 — жаль про незроблене."},
+ {t:"choice",q:"You ___ brought flowers — the house is already full of them.",
+  o:["mustn't have","needn't have","can't have","shouldn't be"],a:1,
+  why:"Needn't have + V3 — зробила те, чого не було потреби робити."},
+ {t:"choice",q:"У якому реченні mustn't означає заборону, а не здогад?",
+  o:["She mustn't be at home.","You mustn't tell anyone.","He must be tired.","They must have left."],a:1,
+  why:"Mustn't — завжди заборона; для заперечного здогаду вживають can't."},
+ {t:"gap",q:"The parcel ___ (arrive) by Friday — they posted it on Monday.",
+  a:["should arrive","should have arrived","ought to arrive"],
+  why:"Should виражає обґрунтоване очікування."},
+ {t:"tr",q:"Він, певно, загубив мій номер — інакше вже подзвонив би.",
+  a:["He must have lost my number, otherwise he would have called by now.","He must have lost my number — otherwise he'd have called already."],
+  why:"Must have + V3 для впевненого здогаду про минуле."},
+ {t:"tr",q:"Не може бути, щоб вона таке сказала.",
+  a:["She can't have said that.","She can't have said such a thing."],
+  why:"Can't have + V3 — упевнене заперечення."},
+ {t:"choice",q:"«They might have been sleeping when I called» — про що це?",
+  o:["Про дозвіл","Про здогад щодо процесу в минулому","Про заборону","Про обов'язок"],a:1,
+  why:"Modal + have been + V-ing описує ймовірний процес у минулому."},
+ {t:"match",pairs:[["presumably","імовірно, слід гадати"],["apparently","як виявляється"],["to be bound to","неодмінно, обов'язково"],["unlikely","малоймовірний"]]}
+],
+
+en16:[
+ {t:"choice",q:"I ___ coffee every morning, but I gave it up last year.",
+  o:["am used to drinking","used to drink","get used to drink","would be drinking"],a:1,
+  why:"Минула звичка, якої вже немає → used to + V1."},
+ {t:"gap",q:"I'm not used to ___ (get) up at five.",
+  a:["getting up","getting"],
+  why:"Після be used to стоїть прийменник to, тому далі -ing."},
+ {t:"gap",q:"Didn't you ___ (use) to have long hair?",
+  a:["use"],
+  why:"У питанні з did закінчення -d зникає."},
+ {t:"choice",q:"After a month in Madrid she ___ eating dinner at ten.",
+  o:["used to","got used to","was used","would"],a:1,
+  why:"Процес призвичаєння → get used to + V-ing."},
+ {t:"choice",q:"Яке речення НЕправильне?",
+  o:["I'm used to the noise now.","It took me a while to get used to it.","I didn't used to like olives.","She used to be very shy."],a:2,
+  why:"Після didn't потрібна форма use to, без -d."},
+ {t:"gap",q:"It took me months to get used to ___ (live) alone.",
+  a:["living"],
+  why:"Get used to + V-ing — після to як прийменника."},
+ {t:"choice",q:"У якому реченні would НЕ можна вжити замість used to?",
+  o:["We used to spend summers at the lake.","She used to call every Sunday.","I used to have a cat.","They used to meet after work."],a:2,
+  why:"Would не поєднується зі станами, а have у значенні «мати» — стан."},
+ {t:"tr",q:"Раніше я не любила каву, а тепер не можу без неї.",
+  a:["I didn't use to like coffee, but now I can't live without it.","I never used to like coffee, but now I can't do without it."],
+  why:"Заперечна форма used to + контраст із теперішнім."},
+ {t:"tr",q:"Я поступово звикаю до нового графіка, хоча спочатку було дивно.",
+  a:["I'm gradually getting used to the new schedule, although it felt strange at first.","I'm slowly getting used to the new timetable, though at first it felt odd."],
+  why:"Get used to для процесу, що ще триває."},
+ {t:"choice",q:"«This keyboard takes some getting used to» означає:",
+  o:["До цієї клавіатури треба звикнути","Ця клавіатура зручна","Я звикла до клавіатури","Клавіатура зламана"],a:0,
+  why:"Усталений зворот про річ, яка потребує звикання."},
+ {t:"match",pairs:[["second nature","друга натура, автоматизм"],["no longer","більше не"],["at first","спочатку"],["to settle in","освоїтися на новому місці"]]}
+],
+
+en19:[
+ {t:"choice",q:"Ви стоїте в черзі до кави. Який відкривач доречний?",
+  o:["How much do you earn?","Have you been waiting long?","Why are you alone?","Are you married?"],a:1,
+  why:"Безпечна тема й нульовий тиск — ідеальний початок."},
+ {t:"choice",q:"Касир каже «How are you?». Що він має на увазі?",
+  o:["Цікавиться вашим самопочуттям","Це просто вітання","Хоче почати розмову","Питає, чи ви здорові"],a:1,
+  why:"Тут це ритуальне вітання: відповідь — Good, thanks, you?"},
+ {t:"gap",q:"Lovely day, ___ it?",
+  a:["isn't","isnt","is not"],
+  why:"Питання-хвостик перетворює твердження на запрошення до розмови."},
+ {t:"choice",q:"Подруга розповідає про нову роботу. Яка реакція покаже інтерес?",
+  o:["OK.","Oh really? How's it going so far?","I see.","Right."],a:1,
+  why:"Реакція + зустрічне питання тримають розмову живою."},
+ {t:"gap",q:"It's late — I'd better ___ you go.",
+  a:["let"],
+  why:"I'd better let you go — ввічливий спосіб завершити розмову."},
+ {t:"tr",q:"Ти тут часто буваєш? — Ні, власне, вперше.",
+  a:["Do you come here often? — No, first time, actually.","Are you here often? — No, actually it's my first time."],
+  why:"Відкривач + відповідь із деталлю."},
+ {t:"tr",q:"Ой, шкода це чути. Сподіваюся, скоро налагодиться.",
+  a:["Oh no, that's a shame. I hope it gets better soon.","Oh, I'm sorry to hear that. Hope it sorts itself out soon."],
+  why:"Співчутлива реакція на погану новину."},
+ {t:"choice",q:"Яке питання НЕ варто ставити малознайомій людині?",
+  o:["How was your weekend?","How do you know Anna?","How much do you pay for rent?","Have you seen that series?"],a:2,
+  why:"Гроші — одна з найбільш табуйованих тем у small talk."},
+ {t:"choice",q:"«Let's catch up soon» означає:",
+  o:["Треба наздогнати","Давай скоро нормально поговоримо","Я поспішаю","Дай мені спокій"],a:1,
+  why:"Catch up — зустрітися й поговорити після перерви."},
+ {t:"gap",q:"Anyway, I should get ___ — it was nice talking to you.",
+  a:["going"],
+  why:"Get going — усталений сигнал, що ви завершуєте розмову."},
+ {t:"match",pairs:[["see you around","ще побачимось"],["good for you","молодець, оце добре"],["that's a shame","прикро, шкода"],["to keep it light","тримати легкий тон"]]}
+]
+
+};
+Object.keys(EX_EXTRA).forEach(id=>{
+  const l = ALL.find(x=>x.id===id);
+  if(l) l.ex = l.ex.concat(EX_EXTRA[id]);
+});
+
+
 /* ---------------- сховище ---------------- */
 const KEY = "verba.v1";
 const OLDKEY = "movnyk.v1";
@@ -5415,7 +5697,7 @@ function screenHome(){
         <button class="btn ghost sm" onclick="setGoal(120)">Ціль 120</button>
       </div>
     </div>
-    <div class="foot">${ALL.length} уроків · ${ALL.reduce((n,l)=>n+l.words.length,0)} слів · ${ALL.length*TARGET_EX} вправ</div>
+    <div class="foot">${ALL.length} уроків · ${ALL.reduce((n,l)=>n+l.words.length,0)} слів · ${ALL.reduce((n,l)=>n+l.ex.length,0)} вправ</div>
   </div>`;
 }
 function setGoal(n){ P.goal=n; saveP(); render(); toast("Ціль дня: "+n+" XP"); }
@@ -5457,7 +5739,7 @@ function screenCourse(){
   if(tab==="cards") body=tabCards(c);
   return header(c.name+" · "+c.sub,"go({s:'home'})") +
     `<div class="tabs"><div class="wrap">${t("prog","Програма")}${t("base","База")}${t("train","Тренажер")}${t("cards","Картки"+(due?" ·"+due:""))}</div></div>
-     <div class="wrap">${body}<div class="foot">${c.lessons.length} уроків · ${c.lessons.reduce((n,l)=>n+l.words.length,0)} слів · ${c.lessons.length*TARGET_EX} вправ</div></div>`;
+     <div class="wrap">${body}<div class="foot">${c.lessons.length} уроків · ${c.lessons.reduce((n,l)=>n+l.words.length,0)} слів · ${c.lessons.reduce((n,l)=>n+l.ex.length,0)} вправ</div></div>`;
 }
 
 function tabProgram(c){
@@ -5902,7 +6184,7 @@ function screenLesson(){
     ${sec("Пояснення",`<div class="tx">${theory(l,c.id)}</div>`+moreBlock(l,c.id))}
     ${sec("Слова уроку · "+l.words.length,words)}
     ${sec("Конструкції",pats)}
-    ${sec("Вправи · "+exCount(l),`<button class="btn" onclick="startLesson('${l.id}')">${st.rate!=null?"Пройти ще раз":"Почати вправи"}</button>${rate}`)}
+    ${sec("Вправи · "+l.ex.length,`<button class="btn" onclick="startLesson('${l.id}')">${st.rate!=null?"Пройти ще раз":"Почати вправи"}</button>${rate}`)}
     ${sec("Домашнє завдання",`<div class="card hw"><p style="margin:0 0 10px">${esc(l.hw)}</p>
       <textarea id="hw" placeholder="Пишіть тут — текст збережеться на цьому пристрої">${esc(st.hw||"")}</textarea>
       <button class="btn ghost sm save" onclick="saveHw('${l.id}')">Зберегти</button><div id="hwmsg"></div></div>`)}
@@ -5924,76 +6206,9 @@ function toggleDone(id){
   if(st.done){ st.done=false; } else { st.done=true; addXp(50); addLessonCards(id); }
   saveP(); render();
 }
-/* ---------- добірка вправ уроку до 20 завдань ---------- */
-const TARGET_EX = 20;
-function escRe(x){ return String(x).replace(/[.*+?^${}()|[\]\\]/g,"\\$&"); }
-function genEx(l){
-  const c=courseOf(l.id).id, out=[];
-  const words=l.words.slice(), pats=l.pats.slice();
-  const tr = w => w.t, wd = w => w.w;
-  const pick = (arr,not,key,n) => shuffle(arr.filter(x=>key(x)!==not)).slice(0,n).map(key);
-
-  // 1. слово → переклад
-  words.forEach(w=>{
-    if(words.length<4) return;
-    const o=shuffle([tr(w),...pick(words,tr(w),tr,3)]);
-    out.push({t:"choice",q:w.w,hint:"оберіть переклад",o,a:o.indexOf(tr(w)),why:w.s,gen:1});
-  });
-  // 2. переклад → слово
-  words.forEach(w=>{
-    if(words.length<4) return;
-    const o=shuffle([wd(w),...pick(words,wd(w),wd,3)]);
-    out.push({t:"choice",q:w.t,hint:"яке це слово?",o,a:o.indexOf(wd(w)),why:w.s,gen:1});
-  });
-  // 3. пропуск у прикладі зі словника
-  words.forEach(w=>{
-    const key=clean(w.w);
-    if(!key || key.indexOf(" ")>-1 || key.length<3) return;
-    const re=new RegExp("\\b"+escRe(key)+"\\b","i");
-    if(!re.test(w.s)) return;
-    out.push({t:"gap",q:w.s.replace(re,"___"),a:[key],why:w.w+" — "+w.t,gen:1});
-  });
-  // 4. значення → конструкція
-  pats.forEach(p=>{
-    if(pats.length<4) return;
-    const o=shuffle([p.f,...pick(pats,p.f,x=>x.f,3)]);
-    out.push({t:"choice",q:p.t,hint:"яка конструкція це передає?",o,a:o.indexOf(p.f),why:p.s,gen:1});
-  });
-  // 5. переклад прикладу конструкції
-  pats.forEach(p=>{
-    out.push({t:"tr",q:p.t+"  ·  за конструкцією: "+p.f,a:[p.s],why:p.s,gen:1});
-  });
-  // 6. пари слів
-  if(words.length>=8){
-    const sh=shuffle(words);
-    for(let i=0;i+4<=sh.length && i<8;i+=4){
-      out.push({t:"match",pairs:sh.slice(i,i+4).map(w=>[clean(w.w),w.t]),gen:1});
-    }
-  }
-  return out;
-}
-function lessonItems(l){
-  const own=l.ex.map(e=>Object.assign({},e));
-  const extra=shuffle(genEx(l));
-  const byType={}; const picked=[];
-  // беремо згенеровані так, щоб типи чергувалися
-  extra.forEach(e=>{ (byType[e.t]=byType[e.t]||[]).push(e); });
-  const order=["choice","gap","tr","match"];
-  let added=true;
-  while(picked.length < TARGET_EX-own.length && added){
-    added=false;
-    order.forEach(t=>{
-      if(picked.length>=TARGET_EX-own.length) return;
-      const pool=byType[t];
-      if(pool && pool.length){ picked.push(pool.shift()); added=true; }
-    });
-  }
-  return shuffle(own.concat(picked));
-}
-function exCount(l){ return Math.min(TARGET_EX, l.ex.length + genEx(l).length); }
 function startLesson(id){
   const l=ALL.find(x=>x.id===id);
-  go({s:"ex", mode:"lesson", id, c:courseOf(id).id, items:lessonItems(l), i:0, ok:0, log:[]});
+  go({s:"ex", mode:"lesson", id, c:courseOf(id).id, items:l.ex.map(e=>Object.assign({},e)), i:0, ok:0, log:[]});
 }
 
 /* ---------------- вправи ---------------- */
