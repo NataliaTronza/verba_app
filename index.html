@@ -359,6 +359,12 @@ textarea{min-height:130px;line-height:1.6;resize:vertical}
 .sprout .lf{animation:leafIn .5s cubic-bezier(.22,.9,.3,1) both;transform-origin:center}
 .sprout .lf2{animation-delay:.75s}
 .sprout .lf1{animation-delay:.55s}
+
+.setrow{display:flex;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.setrow:first-of-type{border-top:0}
+.setrow .l{flex:1;min-width:0}
+.setrow .btn{width:auto;margin:0;padding:10px 16px;flex:0 0 auto}
+.setrow .box{flex:0 0 auto}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 :focus-visible{outline:2px solid var(--a);outline-offset:3px}
 </style>
@@ -5195,6 +5201,34 @@ Object.values(COURSES).forEach(c=>{
 const ALL = [...EN_LESSONS,...ES_LESSONS];
 const courseOf = id => id.startsWith("en") ? COURSES.en : COURSES.es;
 
+/* ---------------- тематичні набори слів ---------------- */
+const WORD_SETS = [
+{ id:"tea", c:"en", tag:"чай", name:"Чай: смак і аромат", sub:"як описати чай англійською",
+  words:[
+   {w:"delicate",t:"ніжний, вишуканий",s:"This tea has a delicate flavor."},
+   {w:"mild",t:"м'який",s:"I prefer mild tea because I don't like strong flavors."},
+   {w:"robust",t:"міцний, насичений",s:"I like robust black tea in the morning."},
+   {w:"refreshing",t:"освіжаючий",s:"This iced tea is very refreshing on a hot day."},
+   {w:"floral",t:"квітковий",s:"This tea has a floral aroma that reminds me of spring."},
+   {w:"spicy",t:"пряний",s:"I love spicy tea with ginger and cinnamon."},
+   {w:"malty",t:"солодовий",s:"This Assam tea has a rich, malty taste."},
+   {w:"honey-like",t:"медовий, схожий на мед",s:"The tea has a honey-like sweetness."},
+   {w:"brisk",t:"бадьорий, освіжаючий",s:"I enjoy a brisk cup of tea in the morning."},
+   {w:"peppery",t:"з нотками перцю",s:"This unusual tea has a peppery taste."},
+   {w:"jasmine-scented",t:"з ароматом жасмину",s:"I bought some jasmine-scented tea yesterday."},
+   {w:"bergamot-infused",t:"з ароматом бергамоту",s:"Earl Grey is a bergamot-infused black tea."}
+  ]}
+];
+function courseSets(cid){ return WORD_SETS.filter(s=>s.c===cid); }
+function setMissing(set){ return set.words.filter(w=>!P.cards.some(x=>x.id===cardId(set.c,w.w))).length; }
+function addSetCards(id){
+  const set=WORD_SETS.find(s=>s.id===id); if(!set) return;
+  let n=0; set.words.forEach(w=>{ if(addCard(set.c,w.w,w.t,w.s,0,"word")) n++; });
+  saveP(); render();
+  toast(n ? n+" "+plural(n,"картка додана","картки додано","карток додано") : "Ці слова вже є у ваших картках");
+}
+
+
 /* додаткові вправи до англійських уроків B1 — по 11 на урок */
 const EX_EXTRA = {
 
@@ -5789,6 +5823,7 @@ function baseList(c){
   if(baseMode==="words"){
     let rows=[];
     c.lessons.forEach(l=>l.words.forEach(w=>{ if(!q||norm(w.w+" "+w.t+" "+w.s).includes(q)) rows.push({w,tag:String(l.num)}); }));
+    courseSets(c.id).forEach(st=>st.words.forEach(w=>{ if(!q||norm(w.w+" "+w.t+" "+w.s).includes(q)) rows.push({w,tag:st.tag}); }));
     courseCards(c.id).filter(x=>x.own).forEach(x=>{ if(!q||norm(x.w+" "+x.t+" "+x.s).includes(q)) rows.push({w:{w:x.w,t:x.t,s:x.s},tag:"моє"}); });
     if(!rows.length) return `<div class="empty">Такого слова в базі поки немає — його можна додати своєю карткою у вкладці «Картки».</div>`;
     return `<div class="card">${rows.map(r=>`<div class="word">
@@ -5876,6 +5911,17 @@ function tabCards(c){
     ${due.length?`<button class="btn" onclick="startSrs()">Повторити ${due.length} ${plural(due.length,"картку","картки","карток")}</button>`
       :`<div class="card" style="text-align:center;color:var(--dim);font-size:14.5px">На сьогодні все повторено.${all.length?" Наступні картки з’являться завтра.":" Додайте свої слова або відкрийте урок і додайте його словник."}</div>`}
     ${form}
+    ${(()=>{ const sets=courseSets(c.id); if(!sets.length) return "";
+      return `<div class="card" style="margin-top:14px">
+        <div class="sectitle"><span>набори слів</span><i></i></div>
+        ${sets.map(st=>{ const miss=setMissing(st);
+          return `<div class="setrow">
+            <div class="l"><div class="cw">${esc(st.name)}</div>
+              <div class="cs">${esc(st.sub)} · ${st.words.length} ${plural(st.words.length,"слово","слова","слів")}</div></div>
+            ${miss?`<button class="btn ghost sm setbtn" onclick="addSetCards('${st.id}')">Додати ${miss}</button>`
+                  :`<span class="box">усі в картках</span>`}
+          </div>`; }).join("")}
+      </div>`; })()}
     <div class="chiprow" style="margin-top:18px">${chip("all","Усі "+all.length)}${chip("lesson","З уроків "+fromLesson.length)}${chip("own","Мої "+own.length)}</div>
     ${list.length?`<div class="card">${list.slice(0,300).map(x=>`<div class="crow">
         <div class="ctop">
